@@ -1,0 +1,8 @@
+{
+  "extends": ["eslint:recommended", "xo-space/esnext", "prettier"],
+  "rules": {
+    "new-cap": 0,
+    "camelcase": 0,
+    "capitalized-comments": 0
+  }
+}

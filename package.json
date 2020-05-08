@@ -1,0 +1,67 @@
+{
+  "name": "@sergioramos/remark-prism",
+  "version": "1.0.0",
+  "description": "Syntax highlighter for markdown code blocks - with support for plugins",
+  "license": "BSD-3-Clause",
+  "repository": "sergioramos/remark-prism",
+  "main": "index.js",
+  "keywords": [
+    "prismjs",
+    "markdown",
+    "remark",
+    "remarkjs",
+    "remark-plugin"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "scripts": {
+    "eslint": "eslint . --ext .js",
+    "fmt": "prettier --config .prettierrc --write '**/*'",
+    "test": "NODE_ENV=test c8 -r lcovonly -r text ava --serial"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "css-selector-parser": "^1.4.1",
+    "escape-html": "^1.0.3",
+    "hast-util-to-html": "^7.1.1",
+    "hastscript": "^5.1.2",
+    "jsdom": "^16.2.2",
+    "parse-numeric-range": "^1.2.0",
+    "prismjs": "^1.20.0",
+    "unist-builder": "^2.0.3",
+    "unist-util-map": "^2.0.1"
+  },
+  "devDependencies": {
+    "ava": "^3.8.2",
+    "c8": "^7.1.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-xo-space": "^0.24.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "mz": "^2.7.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "puppeteer": "^3.0.4",
+    "remark": "^12.0.0",
+    "remark-html": "^11.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --config .prettierrc --write",
+      "git add"
+    ],
+    "*.*": [
+      "prettier --config .prettierrc --write",
+      "git add"
+    ]
+  }
+}

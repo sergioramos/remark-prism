@@ -1,0 +1,111 @@
+name: Continuous Integration
+
+on: push
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: technote-space/auto-cancel-redundant-job@v1
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '13.x'
+    - name: Setup Cache
+      uses: actions/cache@v1
+      with:
+        path: .yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+    - name: Install dependencies
+      run: yarn install --immutable
+      env:
+        YARN_CHECKSUM_BEHAVIOR: update
+
+###############################################################################
+# COMMITLINT                                                                  #
+###############################################################################
+  commitlint:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Commit Lint
+      uses: wagoid/commitlint-github-action@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+###############################################################################
+# ESLINT                                                                      #
+###############################################################################
+  eslint:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '13.x'
+    - name: Setup Cache
+      uses: actions/cache@v1
+      with:
+        path: .yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+    - name: Install dependencies
+      run: yarn install --immutable --immutable-cache
+    - name: ESLint
+      run: yarn run eslint
+
+###############################################################################
+# TEST                                                                        #
+###############################################################################
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '13.x'
+    - name: Setup Cache
+      uses: actions/cache@v1
+      with:
+        path: .yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+    - name: Install dependencies
+      run: yarn install --immutable --immutable-cache
+    - name: Test
+      run: yarn run test
+    - uses: devmasx/coverage-check-action@v1.1.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        result_path: coverage/lcov.info
+        min_coverage: 90
+        type: lcov
+
+###############################################################################
+# RELEASE                                                                     #
+###############################################################################
+  release:
+    needs: [test, eslint, commitlint]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Get branch
+      uses: rlespinasse/github-slug-action@1.1.0
+    - name: Release
+      uses: ridedott/release-me-action@master
+      if: ${{ env.GITHUB_REF_SLUG == 'master' }}
+      with:
+        node-module: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}
