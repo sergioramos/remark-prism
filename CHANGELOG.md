@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/sergioramos/remark-prism/compare/v1.0.1...v1.0.2) (2020-05-18)
+
+### Bug Fixes
+
+- prevent self crash ([de74e7f](https://github.com/sergioramos/remark-prism/commit/de74e7f15e190b6acb346b683478fff28b4b74e3))
+
 ## [1.0.1](https://github.com/sergioramos/remark-prism/compare/v1.0.0...v1.0.1) (2020-05-18)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
   "name": "@sergioramos/remark-prism",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Syntax highlighter for markdown code blocks - with support for plugins",
   "license": "BSD-3-Clause",
   "repository": "sergioramos/remark-prism",
