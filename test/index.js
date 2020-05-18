@@ -132,6 +132,16 @@ test('keep-markup', async (t) => {
   t.snapshot(output);
 });
 
+test('legend', async (t) => {
+  const markdown = await readFile(join(FIXTURES, 'legend.md'));
+  const output = await compile(markdown);
+
+  await writeFile(join(OUTPUTS, 'legend.html'), output);
+  await takeScreenshot(output, join(OUTPUTS, 'legend.png'));
+
+  t.snapshot(output);
+});
+
 test('line-highlight', async (t) => {
   const markdown = await readFile(join(FIXTURES, 'line-highlight.md'));
   const output = await compile(markdown);
