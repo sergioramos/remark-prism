@@ -40,8 +40,17 @@ const PLUGINS = [
 const PLUGIN = (src) => {
   return `
     window.Prism = Prism;
-    const self = window;
-    ${src};
+
+    try {
+      const self = window;
+      ${src};
+    } catch(err) {
+      try {
+        ${src};
+      } catch(err) {
+        console.error(err);
+      };
+    };
 `;
 };
 
