@@ -141,7 +141,7 @@ const selectorToAttrs = (selector) => {
 
 const parseLang = (str) => {
   const match = (regexp) => {
-    const m = str.match(regexp);
+    const m = (str || '').match(regexp);
     return Array.isArray(m) ? m : [];
   };
 

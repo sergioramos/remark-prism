@@ -154,6 +154,16 @@ test('line-numbers', async (t) => {
   t.snapshot(output);
 });
 
+test('no-lang', async (t) => {
+  const markdown = await readFile(join(FIXTURES, 'no-lang.md'));
+  const output = await compile(markdown);
+
+  await writeFile(join(OUTPUTS, 'no-lang.html'), output);
+  await takeScreenshot(output, join(OUTPUTS, 'no-lang.png'));
+
+  t.snapshot(output);
+});
+
 test('show-invisibles', async (t) => {
   const markdown = await readFile(join(FIXTURES, 'show-invisibles.md'));
   const output = await compile(markdown, {
