@@ -163,12 +163,14 @@ const parseLang = (str) => {
 
   const attrs = selectors.length ? selectorToAttrs(selectors) : {};
   const className = classNames(lang ? `language-${lang}` : '', attrs.class);
+  const { legend = '', ...restAttrs } = attrs;
 
   return {
     lang,
     range: range ? rangeParser(range) : [],
+    legend,
     attrs: {
-      ...attrs,
+      ...restAttrs,
       class: className,
     },
   };
@@ -190,7 +192,7 @@ module.exports = (options = {}) => (tree) => {
     }
 
     const { value } = node;
-    const { lang, attrs, range } = parseLang(node.lang);
+    const { lang, attrs, legend, range } = parseLang(node.lang);
 
     const raw = highlight({ lang, value, attrs })
       .split(/\n/)
@@ -201,9 +203,14 @@ module.exports = (options = {}) => (tree) => {
       }, '');
 
     const code = h('code', {}, u('raw', raw));
-    const pre = h('div', { className: 'remark-highlight' }, [
-      h('pre', attrs, [code]),
-    ]);
+    const pre = h(
+      'div',
+      { className: 'remark-highlight' },
+      [
+        h('pre', attrs, [code]),
+        legend ? h('legend', {}, [legend]) : null,
+      ].filter(Boolean),
+    );
 
     return u(
       'html',
