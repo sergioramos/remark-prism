@@ -12,7 +12,7 @@ Syntax highlighter for markdown code blocks using [Prism](https://prismjs.com/) 
 
 ```js
 remark()
-  .use(require('@sergioramos/remark-prism'))
+  .use(require('remark-prism'))
   .use(require('remark-html'))
   .process(src, console.log);
 ```
@@ -23,7 +23,7 @@ Based [`gatsby-remark-prismjs`](https://github.com/gatsbyjs/gatsby/tree/master/p
 
 ```js
 remark()
-  .use(require('@sergioramos/remark-prism'), { showSpotlight: true })
+  .use(require('remark-prism'), { showSpotlight: true })
   .use(require('remark-html'))
   .process(src, console.log);
 ```
@@ -77,7 +77,7 @@ It supports some [Prism](https://prismjs.com/) plugins:
 
 ```js
 remark()
-  .use(require('@sergioramos/remark-prism'), {
+  .use(require('remark-prism'), {
     plugins: [
       'prismjs/plugins/autolinker/prism-autolinker',
       'prismjs/plugins/diff-highlight/prism-diff-highlight',
