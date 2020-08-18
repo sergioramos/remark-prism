@@ -37,6 +37,19 @@ body::before {
 console.log('Hello World');
 ```
 
+```jsx
+class HelloMessage extends React.Component {
+  render() {
+    return <div>Hello {this.props.name}</div>;
+  }
+}
+
+ReactDOM.render(
+  <HelloMessage name="Taylor" />,
+  document.getElementById('hello-example'),
+);
+```
+
 ```abap
 REPORT ZHELLO_WORLD.
 
