@@ -1,3 +1,14 @@
+## [1.1.1](https://github.com/sergioramos/remark-prism/compare/v1.1.0...v1.1.1) (2020-08-18)
+
+### Chores
+
+- upgrade dependencies ([d998811](https://github.com/sergioramos/remark-prism/commit/d99881183cfc00181578fa76c315e1f2ef1cea78))
+
+### Continuous Integration
+
+- use NODE_AUTH_TOKEN to publish ([41c9ed1](https://github.com/sergioramos/remark-prism/commit/41c9ed120c452d023f7c853a91be0fc521a2d716))
+- use npm registry ([5a71cb8](https://github.com/sergioramos/remark-prism/commit/5a71cb83865b92d55643e5431f26542c0c5a4fc0))
+
 # [1.1.0](https://github.com/sergioramos/remark-prism/compare/v1.0.2...v1.1.0) (2020-05-18)
 
 ### Features
