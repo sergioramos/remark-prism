@@ -1,3 +1,13 @@
+## [1.1.2](https://github.com/sergioramos/remark-prism/compare/v1.1.1...v1.1.2) (2020-08-18)
+
+### Chores
+
+- remove module scope ([7d783db](https://github.com/sergioramos/remark-prism/commit/7d783db454a66ef0088902286bf365020c03b61d))
+
+### BREAKING CHANGE
+
+- this essentially creates a new package and the previous one is now deprecated
+
 ## [1.1.1](https://github.com/sergioramos/remark-prism/compare/v1.1.0...v1.1.1) (2020-08-18)
 
 ### Chores
