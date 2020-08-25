@@ -8,7 +8,7 @@ on:
     branches: [ dependabot/** ]
 
 jobs:
-  build:
+  update-manifests:
     runs-on: ubuntu-latest
     steps:
     - uses: technote-space/auto-cancel-redundant-job@v1

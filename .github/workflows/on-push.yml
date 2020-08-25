@@ -1,9 +1,6 @@
 name: Continuous Integration
 
-on:
-  push:
-    branches: 
-    - '!dependabot/**'
+on: push
 
 jobs:
   setup:
