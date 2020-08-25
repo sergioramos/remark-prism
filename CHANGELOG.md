@@ -1,3 +1,19 @@
+## [1.1.4](https://github.com/sergioramos/remark-prism/compare/v1.1.3...v1.1.4) (2020-08-25)
+
+### Chores
+
+- **deps-dev:** bump ava from 3.11.1 to 3.12.1 ([050a1f4](https://github.com/sergioramos/remark-prism/commit/050a1f4bff627d37301ed918ba34cad56a8cd0e6))
+- **deps-dev:** bump lint-staged from 10.2.11 to 10.2.12 ([4eeb1c0](https://github.com/sergioramos/remark-prism/commit/4eeb1c0b4e27bf345f428ce0c930fffa6264928c))
+- **deps-dev:** bump prettier from 2.0.5 to 2.1.0 ([ec26133](https://github.com/sergioramos/remark-prism/commit/ec26133ce0d4baf4d423906c1f7321f3fe311d91))
+
+### Continuous Integration
+
+- allow empty on dependabot changes ([6e0c741](https://github.com/sergioramos/remark-prism/commit/6e0c741bd0aa2e446f4bc235c43fdf1f59002f93))
+- remove .dependabot config ([5667adc](https://github.com/sergioramos/remark-prism/commit/5667adcedb7b1c3011ea73b256edd191b866ff99))
+- run tests on dependabot ([5bc9e9a](https://github.com/sergioramos/remark-prism/commit/5bc9e9aeb5460214ef3fca810e036ba0403447a5))
+- update package.json too on dependabot ([bedeada](https://github.com/sergioramos/remark-prism/commit/bedeada27c1aba59f4546636926bf87ad851ab5c))
+- upgrade yarn ([1fac57c](https://github.com/sergioramos/remark-prism/commit/1fac57cbe4f38f9c1b371eb28953fae613f3baa2))
+
 ## [1.1.3](https://github.com/sergioramos/remark-prism/compare/v1.1.2...v1.1.3) (2020-08-25)
 
 ### Continuous Integration
