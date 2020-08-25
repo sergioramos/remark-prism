@@ -2,10 +2,10 @@ name: Continuous Updates
 
 on:
   push:
-    branches: [ dependabot/** ]
+    branches: [ dependabot/npm_and_yarn/** ]
   pull_request:
     types: [opened, synchronize, reopened]
-    branches: [ dependabot/** ]
+    branches: [ dependabot/npm_and_yarn/** ]
 
 jobs:
   update-manifests:
