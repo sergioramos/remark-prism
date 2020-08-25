@@ -1,3 +1,12 @@
+## [1.1.6](https://github.com/sergioramos/remark-prism/compare/v1.1.5...v1.1.6) (2020-08-25)
+
+### Chores
+
+- **deps:** bump actions/cache from v1 to v2.1.1 ([ab65e9a](https://github.com/sergioramos/remark-prism/commit/ab65e9a0aa02112a78d51f97b7ef0480d51e81ce))
+- **deps:** bump actions/setup-node from v1 to v2.1.1 ([6495a14](https://github.com/sergioramos/remark-prism/commit/6495a146b0366e2d606f320bc7401f7ab3926f4b))
+- **deps:** bump rlespinasse/github-slug-action from 1.1.0 to 2.1.0 ([ba595ed](https://github.com/sergioramos/remark-prism/commit/ba595ed03c845177774bf6fc2c9b43a67c850bbf))
+- **deps:** bump wagoid/commitlint-github-action from v1 to v2.0.2 ([5936dd1](https://github.com/sergioramos/remark-prism/commit/5936dd1eb9e1b08c32a0dec0c21cc99a177fc082))
+
 ## [1.1.5](https://github.com/sergioramos/remark-prism/compare/v1.1.4...v1.1.5) (2020-08-25)
 
 ### Continuous Integration
