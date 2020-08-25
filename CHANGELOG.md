@@ -1,3 +1,9 @@
+## [1.1.3](https://github.com/sergioramos/remark-prism/compare/v1.1.2...v1.1.3) (2020-08-25)
+
+### Continuous Integration
+
+- add support for dependabot ([aad5f02](https://github.com/sergioramos/remark-prism/commit/aad5f0267b8a3668b921f9662bfe4bbb849904ff))
+
 ## [1.1.2](https://github.com/sergioramos/remark-prism/compare/v1.1.1...v1.1.2) (2020-08-18)
 
 ### Chores
