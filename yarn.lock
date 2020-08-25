@@ -913,7 +913,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-truncate@npm:2.1.0, cli-truncate@npm:^2.1.0":
+"cli-truncate@npm:^2.1.0":
   version: 2.1.0
   resolution: "cli-truncate@npm:2.1.0"
   dependencies:
@@ -1032,10 +1032,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "commander@npm:5.1.0"
-  checksum: d16141ea7f580945156fb8a06de2834c4647c7d9d3732ebd4534ab8e0b7c64747db301e18f2b840f28ea8fef51f7a8d6178e674b45a21931f0b65ff1c7f476b3
+"commander@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "commander@npm:6.0.0"
+  checksum: c7dad02c772d6c6eb76f0642756408df98c730a17c764f5329700638045abd9633038251277ce7d6a077a96d89e6261ee268a4249a3bc4edd607ca8a0126642f
   languageName: node
   linkType: hard
 
@@ -1137,6 +1137,19 @@ __metadata:
     path-type: ^4.0.0
     yaml: ^1.7.2
   checksum: bbd6bbaefe15938107da21f2b5f2d5ede75c7ed4bca5af904d91987c59b050ac95f5e786d9021e16959e0119b36174b190f6040a1daf6fddc75361ab123c0d45
+  languageName: node
+  linkType: hard
+
+"cosmiconfig@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "cosmiconfig@npm:7.0.0"
+  dependencies:
+    "@types/parse-json": ^4.0.0
+    import-fresh: ^3.2.1
+    parse-json: ^5.0.0
+    path-type: ^4.0.0
+    yaml: ^1.10.0
+  checksum: 151fcb91773c0ae826fc801eab86f8f818605dbf63c8e5515adf0ff0fec5ede8e614f387f93c088d65527a2ea9021f0cd8c6b6e5c7fef2b77480b5e2c33700dc
   languageName: node
   linkType: hard
 
@@ -1458,7 +1471,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enquirer@npm:^2.3.5":
+"enquirer@npm:^2.3.5, enquirer@npm:^2.3.6":
   version: 2.3.6
   resolution: "enquirer@npm:2.3.6"
   dependencies:
@@ -1741,7 +1754,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^4.0.1":
+"execa@npm:^4.0.3":
   version: 4.0.3
   resolution: "execa@npm:4.0.3"
   dependencies:
@@ -2430,7 +2443,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"import-fresh@npm:^3.0.0, import-fresh@npm:^3.1.0":
+"import-fresh@npm:^3.0.0, import-fresh@npm:^3.1.0, import-fresh@npm:^3.2.1":
   version: 3.2.1
   resolution: "import-fresh@npm:3.2.1"
   dependencies:
@@ -3024,19 +3037,19 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^10.2.11":
-  version: 10.2.11
-  resolution: "lint-staged@npm:10.2.11"
+"lint-staged@npm:^10.2.12":
+  version: 10.2.12
+  resolution: "lint-staged@npm:10.2.12"
   dependencies:
-    chalk: ^4.0.0
-    cli-truncate: 2.1.0
-    commander: ^5.1.0
-    cosmiconfig: ^6.0.0
+    chalk: ^4.1.0
+    cli-truncate: ^2.1.0
+    commander: ^6.0.0
+    cosmiconfig: ^7.0.0
     debug: ^4.1.1
     dedent: ^0.7.0
-    enquirer: ^2.3.5
-    execa: ^4.0.1
-    listr2: ^2.1.0
+    enquirer: ^2.3.6
+    execa: ^4.0.3
+    listr2: ^2.6.0
     log-symbols: ^4.0.0
     micromatch: ^4.0.2
     normalize-path: ^3.0.0
@@ -3045,11 +3058,11 @@ fsevents@~2.1.2:
     stringify-object: ^3.3.0
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 0d1c408dfea1173b6a691b223228db5a617365bd3ee6b7151fc3cd0b69ecbc1a48ced6675163baa67851c1492ab9025490932d9bf0597dc496638c5a1b4b68ab
+  checksum: 286f043aa5b5687ca61e11f6c8d88ff4a873ad98b277054bebca5d39741517078d06cb3e604651d28257176cde8747bb22b36517435d125d7e4261fde1e88abe
   languageName: node
   linkType: hard
 
-"listr2@npm:^2.1.0":
+"listr2@npm:^2.6.0":
   version: 2.6.0
   resolution: "listr2@npm:2.6.0"
   dependencies:
@@ -4273,7 +4286,7 @@ fsevents@~2.1.2:
     hastscript: ^6.0.0
     husky: ^4.2.5
     jsdom: ^16.4.0
-    lint-staged: ^10.2.11
+    lint-staged: ^10.2.12
     mz: ^2.7.0
     npm-run-all: ^4.1.5
     parse-numeric-range: ^1.2.0
@@ -5779,7 +5792,7 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"yaml@npm:^1.7.2":
+"yaml@npm:^1.10.0, yaml@npm:^1.7.2":
   version: 1.10.0
   resolution: "yaml@npm:1.10.0"
   checksum: d4cc9f9724f8d0aebc2cf52e4e6aa7059f12d50deb54b5225d103462fb2af36e5c0bb419101ca4b1f0cd3b4db9e4139cf2c690e863ac6227648d39d6f4e2522c
