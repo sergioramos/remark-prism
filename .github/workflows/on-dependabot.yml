@@ -26,17 +26,23 @@ jobs:
         git config --global user.email '${{ github.event.commits[0].author.email }}'
     - name: Fix yarn.lock
       run: |
+        # get current branch
+        echo ::set-env name=GITHUB_REF_SLUG::"$(git branch --show-current)"
+        # revert changes to yarn.lock
         git checkout ${{ github.sha }}^ -- yarn.lock
+        # IF only yarn.lock changed, update package.json too
+        git diff --name-only HEAD^ HEAD | grep -q 'package.json' || yarn up `git log -1 --pretty=%s | awk '{ print $3 }'`
+        # regardless, run yarn to update yarn.lock
         yarn
-        git add yarn.lock
+        # stage package.json and yarn.lock
+        git add yarn.lock package.json
+        # commit changes
         git commit --amend --no-edit --allow-empty -n 
       env:
         YARN_CHECKSUM_BEHAVIOR: update
         YARN_ENABLE_SCRIPTS: 0
     - name: Test
       run: yarn run test
-    - name: Get branch
-      uses: rlespinasse/github-slug-action@2.0.0
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
       with:
