@@ -11,6 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: technote-space/auto-cancel-redundant-job@v1
     - uses: actions/checkout@v2
       with:
         fetch-depth: 20
@@ -19,21 +20,19 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
-    - name: Autofix lockfile
-      run: |
-        git checkout ${{ github.sha }}^ -- yarn.lock
-        yarn
-      env:
-        YARN_CHECKSUM_BEHAVIOR: update
-        YARN_ENABLE_SCRIPTS: 0
     - name: Config Git
       run: |
         git config --global user.name '${{ github.event.commits[0].author.name }}'
         git config --global user.email '${{ github.event.commits[0].author.email }}'
-    - name: Commit changes
+    - name: Fix yarn.lock
       run: |
+        git checkout ${{ github.sha }}^ -- yarn.lock
+        yarn
         git add yarn.lock
-        git commit --amend --no-edit -n
+        git commit --amend --no-edit --allow-empty -n 
+      env:
+        YARN_CHECKSUM_BEHAVIOR: update
+        YARN_ENABLE_SCRIPTS: 0
     - name: Get branch
       uses: rlespinasse/github-slug-action@2.0.0
     - name: Push changes
