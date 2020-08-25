@@ -1,0 +1,11 @@
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    commit-message:
+      prefix: 'chore'
+      include: 'scope'
+    versioning-strategy: increase-if-necessary
