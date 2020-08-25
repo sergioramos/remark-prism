@@ -1,3 +1,9 @@
+## [1.1.5](https://github.com/sergioramos/remark-prism/compare/v1.1.4...v1.1.5) (2020-08-25)
+
+### Continuous Integration
+
+- update github actions through dependabot ([a1334a7](https://github.com/sergioramos/remark-prism/commit/a1334a75eaa43dadd887324d6172cbf09125eea7))
+
 ## [1.1.4](https://github.com/sergioramos/remark-prism/compare/v1.1.3...v1.1.4) (2020-08-25)
 
 ### Chores
