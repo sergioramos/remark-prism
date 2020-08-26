@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/sergioramos/remark-prism/compare/v1.1.6...v1.1.7) (2020-08-26)
+
+### Chores
+
+- **deps-dev:** bump lint-staged from 10.2.12 to 10.2.13 ([10f63cc](https://github.com/sergioramos/remark-prism/commit/10f63ccfd72a471462bc02a3dc00f90377ccf599))
+- **deps-dev:** bump prettier from 2.1.0 to 2.1.1 ([636dfee](https://github.com/sergioramos/remark-prism/commit/636dfee47b1e92c4f274469996acf795f7d4a55e))
+
 ## [1.1.6](https://github.com/sergioramos/remark-prism/compare/v1.1.5...v1.1.6) (2020-08-25)
 
 ### Chores
