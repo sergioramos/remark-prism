@@ -3037,9 +3037,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^10.2.12":
-  version: 10.2.12
-  resolution: "lint-staged@npm:10.2.12"
+"lint-staged@npm:^10.2.13":
+  version: 10.2.13
+  resolution: "lint-staged@npm:10.2.13"
   dependencies:
     chalk: ^4.1.0
     cli-truncate: ^2.1.0
@@ -3058,7 +3058,7 @@ fsevents@~2.1.2:
     stringify-object: ^3.3.0
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 286f043aa5b5687ca61e11f6c8d88ff4a873ad98b277054bebca5d39741517078d06cb3e604651d28257176cde8747bb22b36517435d125d7e4261fde1e88abe
+  checksum: ee8fec4a11f1f88991f4071096624daf428a676284a8cf4a3a2d72a1106ff67668115c31ed34a600de13af8f85af279fad73b01960dba7ea3a1c6a4857a6dbb9
   languageName: node
   linkType: hard
 
@@ -4286,7 +4286,7 @@ fsevents@~2.1.2:
     hastscript: ^6.0.0
     husky: ^4.2.5
     jsdom: ^16.4.0
-    lint-staged: ^10.2.12
+    lint-staged: ^10.2.13
     mz: ^2.7.0
     npm-run-all: ^4.1.5
     parse-numeric-range: ^1.2.0
