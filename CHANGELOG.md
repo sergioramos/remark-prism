@@ -1,3 +1,9 @@
+## [1.1.9](https://github.com/sergioramos/remark-prism/compare/v1.1.8...v1.1.9) (2020-09-02)
+
+### Chores
+
+- **deps-dev:** bump eslint from 7.8.0 to 7.8.1 ([0e0347d](https://github.com/sergioramos/remark-prism/commit/0e0347d7e0a5d4c8fe8cd29890f2c2d1c2d8ad91))
+
 ## [1.1.8](https://github.com/sergioramos/remark-prism/compare/v1.1.7...v1.1.8) (2020-09-01)
 
 ### Chores
