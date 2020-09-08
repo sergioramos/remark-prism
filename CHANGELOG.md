@@ -1,3 +1,9 @@
+## [1.1.10](https://github.com/sergioramos/remark-prism/compare/v1.1.9...v1.1.10) (2020-09-08)
+
+### Chores
+
+- **deps-dev:** bump husky from 4.2.5 to 4.3.0 ([5a5c611](https://github.com/sergioramos/remark-prism/commit/5a5c6111c1f0348645597ae1e41d0ded8a324b85))
+
 ## [1.1.9](https://github.com/sergioramos/remark-prism/compare/v1.1.8...v1.1.9) (2020-09-02)
 
 ### Chores
