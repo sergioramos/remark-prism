@@ -1,3 +1,12 @@
+## [1.1.11](https://github.com/sergioramos/remark-prism/compare/v1.1.10...v1.1.11) (2020-09-14)
+
+### Chores
+
+- **deps-dev:** bump puppeteer from 5.2.1 to 5.3.0 ([ad523f1](https://github.com/sergioramos/remark-prism/commit/ad523f14baf9b055214a7fb894ea96fa24bf468a))
+- prettier and eslintrc on pkg.json ([e4ba684](https://github.com/sergioramos/remark-prism/commit/e4ba68462a36f1de53af3bf7adb0007a197e2c59))
+- **deps-dev:** bump eslint from 7.8.1 to 7.9.0 ([908b280](https://github.com/sergioramos/remark-prism/commit/908b280335c7f53e4eeb1f931612d764a00dc9ed))
+- **deps-dev:** bump lint-staged from 10.2.13 to 10.3.0 ([0f339a6](https://github.com/sergioramos/remark-prism/commit/0f339a60368be0778370811f571236f46afa7881))
+
 ## [1.1.10](https://github.com/sergioramos/remark-prism/compare/v1.1.9...v1.1.10) (2020-09-08)
 
 ### Chores
