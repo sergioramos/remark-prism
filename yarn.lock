@@ -1386,10 +1386,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"devtools-protocol@npm:0.0.781568":
-  version: 0.0.781568
-  resolution: "devtools-protocol@npm:0.0.781568"
-  checksum: 7cf1628149763416c23379ddb60772e742e645e6789576a41e8daa17c68008432db9c6ff0d66ac361a500ad3db937291fc3c91bff6e5b232bb7ae40b6b9e945e
+"devtools-protocol@npm:0.0.799653":
+  version: 0.0.799653
+  resolution: "devtools-protocol@npm:0.0.799653"
+  checksum: 9a507f02996c5ffc5081d0c74a887ac0d7bd0bcce88964ee2166bd18c180f4f85c6aee26a00304666ea0c141add14dd0d4947db72331fbe8b708021973c76900
   languageName: node
   linkType: hard
 
@@ -4116,12 +4116,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"puppeteer@npm:^5.2.1":
-  version: 5.2.1
-  resolution: "puppeteer@npm:5.2.1"
+"puppeteer@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "puppeteer@npm:5.3.0"
   dependencies:
     debug: ^4.1.0
-    devtools-protocol: 0.0.781568
+    devtools-protocol: 0.0.799653
     extract-zip: ^2.0.0
     https-proxy-agent: ^4.0.0
     mime: ^2.0.3
@@ -4132,7 +4132,7 @@ fsevents@~2.1.2:
     tar-fs: ^2.0.0
     unbzip2-stream: ^1.3.3
     ws: ^7.2.3
-  checksum: c0b65e431daf6bd738361e68f4706600721f7dc6a461a813a884c89dad629b029f72910e57e0155a33b86c530927a319c3d5678b3d97a2915e6e596cd4fd5b5c
+  checksum: fc427ce18f9b2d4b0ba2eba053b5d5cf9d6f37de90f29c6258f5498c8b395c7f8da8d74223ac3177c4e0773b07b12a763da6ac5fed960bac26bfea179a988cca
   languageName: node
   linkType: hard
 
@@ -4298,7 +4298,7 @@ fsevents@~2.1.2:
     parse-numeric-range: ^1.2.0
     prettier: ^2.1.1
     prismjs: ^1.21.0
-    puppeteer: ^5.2.1
+    puppeteer: ^5.3.0
     remark: ^12.0.1
     remark-html: ^12.0.0
     unist-builder: ^2.0.3
