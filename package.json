@@ -18,7 +18,7 @@
   },
   "scripts": {
     "eslint": "eslint . --ext .js",
-    "fmt": "prettier --config .prettierrc --write '**/*'",
+    "fmt": "prettier --config package.json --write '**/*'",
     "test": "NODE_ENV=test c8 -r lcovonly -r text ava --serial"
   },
   "dependencies": {
@@ -56,12 +56,34 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
-      "prettier --config .prettierrc --write",
+      "prettier --config package.json --write",
       "git add"
     ],
     "*.*": [
-      "prettier --config .prettierrc --write",
+      "prettier --config package.json --write",
       "git add"
     ]
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "xo-space/esnext",
+      "prettier"
+    ],
+    "rules": {
+      "new-cap": 0,
+      "camelcase": 0,
+      "capitalized-comments": 0
+    }
   }
 }
