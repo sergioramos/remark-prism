@@ -1,3 +1,9 @@
+## [1.1.12](https://github.com/sergioramos/remark-prism/compare/v1.1.11...v1.1.12) (2020-09-16)
+
+### Chores
+
+- **deps-dev:** bump prettier from 2.1.1 to 2.1.2 ([39cd10e](https://github.com/sergioramos/remark-prism/commit/39cd10e5b0f7402d72af1aaedeab13f1e75310e1))
+
 ## [1.1.11](https://github.com/sergioramos/remark-prism/compare/v1.1.10...v1.1.11) (2020-09-14)
 
 ### Chores
