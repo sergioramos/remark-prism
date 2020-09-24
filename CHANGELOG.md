@@ -1,3 +1,11 @@
+## [1.1.13](https://github.com/sergioramos/remark-prism/compare/v1.1.12...v1.1.13) (2020-09-24)
+
+### Chores
+
+- **deps-dev:** bump c8 from 7.3.0 to 7.3.1 ([109a675](https://github.com/sergioramos/remark-prism/commit/109a675430cd5bd79db6c5f639ec77bae56c233a))
+- **deps-dev:** bump lint-staged from 10.3.0 to 10.4.0 ([32a5eb0](https://github.com/sergioramos/remark-prism/commit/32a5eb03d54c8858516a75b60f93f1eb8f8e73af))
+- **deps-dev:** bump puppeteer from 5.3.0 to 5.3.1 ([94c4756](https://github.com/sergioramos/remark-prism/commit/94c4756f0d266ca6edd52c5c5aeeea7594883f1c))
+
 ## [1.1.12](https://github.com/sergioramos/remark-prism/compare/v1.1.11...v1.1.12) (2020-09-16)
 
 ### Chores
