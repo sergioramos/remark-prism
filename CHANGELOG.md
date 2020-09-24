@@ -1,3 +1,9 @@
+## [1.1.14](https://github.com/sergioramos/remark-prism/compare/v1.1.13...v1.1.14) (2020-09-24)
+
+### Documentation
+
+- add cover ([691515b](https://github.com/sergioramos/remark-prism/commit/691515b1c1148d5826d2b2345acb6a114774becb))
+
 ## [1.1.13](https://github.com/sergioramos/remark-prism/compare/v1.1.12...v1.1.13) (2020-09-24)
 
 ### Chores
