@@ -1,6 +1,10 @@
 # remark-prism
 
-Syntax highlighter for markdown code blocks using [Prism](https://prismjs.com/) - with support for certain [plugins](https://prismjs.com/plugins/).
+Syntax highlighter for markdown code blocks using [Prism](https://prismjs.com/) - with support for certain [plugins](https://prismjs.com/plugins/). This allows syntax highlighting without running any client-side code - other than CSS.
+
+<div align="center">
+  <img width="898" src="media/cover.png" alt="remark-prism">
+</div>
 
 ## installation
 
@@ -11,10 +15,32 @@ Syntax highlighter for markdown code blocks using [Prism](https://prismjs.com/) 
 ## usage
 
 ```js
-remark()
+const src = `
+\`\`\`javascript
+console.log('Hello World');
+\`\`\`
+`;
+
+require('remark')()
   .use(require('remark-prism'))
   .use(require('remark-html'))
-  .process(src, console.log);
+  .process(src, (err, { contents }) => console.log(contents));
+```
+
+```html
+<div class="remark-highlight">
+  <pre class="language-javascript">
+    <code>
+      <span class="token console class-name">console</span>
+      <span class="token punctuation">.</span>
+      <span class="token method function property-access">log</span>
+      <span class="token punctuation">(</span>
+      <span class="token string">'Hello World'</span>
+      <span class="token punctuation">)</span>
+      <span class="token punctuation">;</span>
+    </code>
+  </pre>
+</div>
 ```
 
 ### `showSpotlight`
@@ -95,7 +121,7 @@ remark()
 
 ### attributes
 
-```
+```markdown
 \`\`\`diff-javascript[class="line-numbers"][class="diff-highlight"]
 ```
 
