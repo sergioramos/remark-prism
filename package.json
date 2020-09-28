@@ -34,7 +34,7 @@
     "unist-util-map": "^2.0.1"
   },
   "devDependencies": {
-    "ava": "^3.12.1",
+    "ava": "^3.13.0",
     "c8": "^7.3.1",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
