@@ -3251,28 +3251,28 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mdast-util-definitions@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "mdast-util-definitions@npm:3.0.1"
+"mdast-util-definitions@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "mdast-util-definitions@npm:4.0.0"
   dependencies:
     unist-util-visit: ^2.0.0
-  checksum: 304cd53a049259ff7d6aa3124c1c72029aec13d1f4badf8464cce86b58c10d527780321b697bdc48414591b9439ac0da916f2549855e54b954903c30eb577e91
+  checksum: a6ef899727823416949068e0c9ab1a812d0fbf04ead6b5db7e8be5f2436980a5d405d07205423577cea9da11f7b015b67d60aad9cde60df4466c04480c91dbde
   languageName: node
   linkType: hard
 
-"mdast-util-to-hast@npm:^9.0.0":
-  version: 9.1.2
-  resolution: "mdast-util-to-hast@npm:9.1.2"
+"mdast-util-to-hast@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "mdast-util-to-hast@npm:10.0.0"
   dependencies:
     "@types/mdast": ^3.0.0
     "@types/unist": ^2.0.0
-    mdast-util-definitions: ^3.0.0
+    mdast-util-definitions: ^4.0.0
     mdurl: ^1.0.0
     unist-builder: ^2.0.0
     unist-util-generated: ^1.0.0
     unist-util-position: ^3.0.0
     unist-util-visit: ^2.0.0
-  checksum: 5c79c78fe3b084f35c3fd6f8a83f1a2b175a4ef8d17fa4e5a0fb92544fa9758af34678717196345ae31e73af769873f6fc1b160a5ee82c5ec224530e5068a8df
+  checksum: 30098259adda521b6900ab05317485cbdd859ad399406bce1917f55c02891ac853b60832c4db81f7caa7ebf5aee3c949e6655e0300f1358755aaec20a6571a01
   languageName: node
   linkType: hard
 
@@ -4265,15 +4265,14 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"remark-html@npm:^12.0.0":
-  version: 12.0.0
-  resolution: "remark-html@npm:12.0.0"
+"remark-html@npm:^13.0.1":
+  version: 13.0.1
+  resolution: "remark-html@npm:13.0.1"
   dependencies:
     hast-util-sanitize: ^3.0.0
     hast-util-to-html: ^7.0.0
-    mdast-util-to-hast: ^9.0.0
-    xtend: ^4.0.1
-  checksum: 5e84001f8bb440ecd2c8d3899518521f8aaad2ecc5b8c73bfff96caa1b405add7c70f5c6d6300d5f5ee8710a289262b36939cda97273c66af015dfdd30c7f4df
+    mdast-util-to-hast: ^10.0.0
+  checksum: b59c71adad63bbfd627d3c6052b5200a131d6787357caf665bbe2ad6136f13232244de6cea7d637e76fd72c027747347e525cd2f2fb8e4d9dedb5530585d1e37
   languageName: node
   linkType: hard
 
@@ -4325,7 +4324,7 @@ fsevents@~2.1.2:
     prismjs: ^1.21.0
     puppeteer: ^5.3.1
     remark: ^12.0.1
-    remark-html: ^12.0.0
+    remark-html: ^13.0.1
     unist-builder: ^2.0.3
     unist-util-map: ^2.0.1
   languageName: unknown
