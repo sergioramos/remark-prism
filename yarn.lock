@@ -211,7 +211,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/unist@npm:*, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2, @types/unist@npm:^2.0.3":
+"@types/unist@npm:*, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2":
   version: 2.0.3
   resolution: "@types/unist@npm:2.0.3"
   checksum: 42e0dc4ac75a27c4bb91a3f8e82edfd8819cacb6edda08bdfb436700ea01a587faa30017fde744b0a0b33825f5e37686398c1eb5b664cabc3a72a6b3757f85a5
@@ -1006,7 +1006,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"collapse-white-space@npm:^1.0.0, collapse-white-space@npm:^1.0.2":
+"collapse-white-space@npm:^1.0.2":
   version: 1.0.6
   resolution: "collapse-white-space@npm:1.0.6"
   checksum: beca17619bd6f8a09bf1a08667d4951af39eeddb59c2a225d3f40a5b758bd0c42ebf8885488b73372c9330085b0971efa1b95503fca833d75e84d8cd1992914f
@@ -1385,15 +1385,6 @@ __metadata:
   version: 1.0.0
   resolution: "delegates@npm:1.0.0"
   checksum: 7459e34d29cadd9bfd340728bfcc70ea96da5d940fb197298b523f805822680e583cba3ec34d36a18004325f1ec9de55e202a92b414d01db18cd87bb8a2ae5bd
-  languageName: node
-  linkType: hard
-
-"detab@npm:^2.0.0":
-  version: 2.0.3
-  resolution: "detab@npm:2.0.3"
-  dependencies:
-    repeat-string: ^1.5.4
-  checksum: 4559bac86e79633529ce20861fdd4dbe86141761ab132b31a886818a25849425f29eaae923738104e4d5a95dc32995df3ca279dc763c55520138cac4b791ba96
   languageName: node
   linkType: hard
 
@@ -3284,31 +3275,28 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mdast-util-definitions@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "mdast-util-definitions@npm:3.0.1"
+"mdast-util-definitions@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "mdast-util-definitions@npm:4.0.0"
   dependencies:
     unist-util-visit: ^2.0.0
-  checksum: 304cd53a049259ff7d6aa3124c1c72029aec13d1f4badf8464cce86b58c10d527780321b697bdc48414591b9439ac0da916f2549855e54b954903c30eb577e91
+  checksum: a6ef899727823416949068e0c9ab1a812d0fbf04ead6b5db7e8be5f2436980a5d405d07205423577cea9da11f7b015b67d60aad9cde60df4466c04480c91dbde
   languageName: node
   linkType: hard
 
-"mdast-util-to-hast@npm:^9.0.0":
-  version: 9.1.0
-  resolution: "mdast-util-to-hast@npm:9.1.0"
+"mdast-util-to-hast@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "mdast-util-to-hast@npm:10.0.0"
   dependencies:
     "@types/mdast": ^3.0.0
-    "@types/unist": ^2.0.3
-    collapse-white-space: ^1.0.0
-    detab: ^2.0.0
-    mdast-util-definitions: ^3.0.0
+    "@types/unist": ^2.0.0
+    mdast-util-definitions: ^4.0.0
     mdurl: ^1.0.0
-    trim-lines: ^1.0.0
     unist-builder: ^2.0.0
     unist-util-generated: ^1.0.0
     unist-util-position: ^3.0.0
     unist-util-visit: ^2.0.0
-  checksum: 17ba52fd1adb6a981dbedef95d02c5a7297b2cbefbc9cea56349967298350fa9c4c0ec163069a48078c6ddfd2689d9fae592052d456726e450a07add3f58c6e3
+  checksum: 30098259adda521b6900ab05317485cbdd859ad399406bce1917f55c02891ac853b60832c4db81f7caa7ebf5aee3c949e6655e0300f1358755aaec20a6571a01
   languageName: node
   linkType: hard
 
@@ -4285,15 +4273,14 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"remark-html@npm:^12.0.0":
-  version: 12.0.0
-  resolution: "remark-html@npm:12.0.0"
+"remark-html@npm:^13.0.1":
+  version: 13.0.1
+  resolution: "remark-html@npm:13.0.1"
   dependencies:
     hast-util-sanitize: ^3.0.0
     hast-util-to-html: ^7.0.0
-    mdast-util-to-hast: ^9.0.0
-    xtend: ^4.0.1
-  checksum: 5e84001f8bb440ecd2c8d3899518521f8aaad2ecc5b8c73bfff96caa1b405add7c70f5c6d6300d5f5ee8710a289262b36939cda97273c66af015dfdd30c7f4df
+    mdast-util-to-hast: ^10.0.0
+  checksum: b59c71adad63bbfd627d3c6052b5200a131d6787357caf665bbe2ad6136f13232244de6cea7d637e76fd72c027747347e525cd2f2fb8e4d9dedb5530585d1e37
   languageName: node
   linkType: hard
 
@@ -4345,7 +4332,7 @@ fsevents@~2.1.2:
     prismjs: ^1.21.0
     puppeteer: ^5.3.1
     remark: ^12.0.1
-    remark-html: ^12.0.0
+    remark-html: ^13.0.1
     unist-builder: ^2.0.3
     unist-util-map: ^2.0.1
   languageName: unknown
@@ -5251,13 +5238,6 @@ resolve@^1.10.0:
   dependencies:
     punycode: ^2.1.1
   checksum: c8c221907944e8b577c4fff14d180a213c21a29b54a12a031aa6986cbb711a5d470588b556a7be9c7844f09142e12deef6b76fe10f6bd4d274b54f1a7e0aac9e
-  languageName: node
-  linkType: hard
-
-"trim-lines@npm:^1.0.0":
-  version: 1.1.3
-  resolution: "trim-lines@npm:1.1.3"
-  checksum: 6f919954bcd6ad4c1a11b3bfae25c7661d3e1c5ebb13b145bdbe04cd88f1b76018fc72b946ba79a0537a6885c0cfaad7266eb020bb02bfad38c8e4b1d653ef28
   languageName: node
   linkType: hard
 
