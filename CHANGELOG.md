@@ -1,3 +1,17 @@
+## [1.1.15](https://github.com/sergioramos/remark-prism/compare/v1.1.14...v1.1.15) (2020-10-08)
+
+### Chores
+
+- **deps:** bump actions/setup-node from v2.1.1 to v2.1.2 ([45bc6d4](https://github.com/sergioramos/remark-prism/commit/45bc6d4c3c82b3612fbc250b145d4b269037fc56))
+- **deps:** bump devmasx/coverage-check-action from v1.1.0 to v1.2.0 ([e5d21f4](https://github.com/sergioramos/remark-prism/commit/e5d21f4e140897ad11314e8b66da95185b7cc326))
+- **deps:** bump rlespinasse/github-slug-action from 2.1.0 to 2.1.1 ([4f7a7ea](https://github.com/sergioramos/remark-prism/commit/4f7a7ea481aede98d2e763c0153fa655d6a04881))
+- **deps-dev:** bump ava from 3.12.1 to 3.13.0 ([1189f69](https://github.com/sergioramos/remark-prism/commit/1189f6933cc266766b212f40faa6635d13c3b5f9))
+- **deps-dev:** bump c8 from 7.3.1 to 7.3.2 ([b18968f](https://github.com/sergioramos/remark-prism/commit/b18968f30348b83768731737d0806a144e6c1418))
+- **deps-dev:** bump eslint from 7.9.0 to 7.10.0 ([cc4689c](https://github.com/sergioramos/remark-prism/commit/cc4689cb394bb9ba23d2061e4517df6d45063ff7))
+- **deps-dev:** bump eslint-config-prettier from 6.11.0 to 6.12.0 ([2260954](https://github.com/sergioramos/remark-prism/commit/226095444c832162192ca886ad0593e2a1c451c9))
+- **deps-dev:** bump remark-html from 12.0.0 to 13.0.1 ([aaeb5f3](https://github.com/sergioramos/remark-prism/commit/aaeb5f35e3062f56ff41d4c65297c3c7c3cf04b5))
+- **no-release:** don't release on dev-deps ([e271be5](https://github.com/sergioramos/remark-prism/commit/e271be57426ca4047f762cf5ce4e7cd417429b02))
+
 ## [1.1.14](https://github.com/sergioramos/remark-prism/compare/v1.1.13...v1.1.14) (2020-09-24)
 
 ### Documentation
