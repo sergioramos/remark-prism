@@ -684,7 +684,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c8@npm:^7.3.1":
+"c8@npm:^7.3.2":
   version: 7.3.2
   resolution: "c8@npm:7.3.2"
   dependencies:
@@ -4305,7 +4305,7 @@ fsevents@~2.1.2:
   resolution: "remark-prism@workspace:."
   dependencies:
     ava: ^3.13.0
-    c8: ^7.3.1
+    c8: ^7.3.2
     classnames: ^2.2.6
     css-selector-parser: ^1.4.1
     escape-html: ^1.0.3
