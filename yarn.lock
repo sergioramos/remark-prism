@@ -684,9 +684,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c8@npm:^7.3.2":
-  version: 7.3.2
-  resolution: "c8@npm:7.3.2"
+"c8@npm:^7.3.3":
+  version: 7.3.3
+  resolution: "c8@npm:7.3.3"
   dependencies:
     "@bcoe/v8-coverage": ^0.2.3
     "@istanbuljs/schema": ^0.1.2
@@ -698,12 +698,12 @@ __metadata:
     istanbul-reports: ^3.0.2
     rimraf: ^3.0.0
     test-exclude: ^6.0.0
-    v8-to-istanbul: ^6.0.0
+    v8-to-istanbul: ^6.0.1
     yargs: ^16.0.0
     yargs-parser: ^20.0.0
   bin:
     c8: bin/c8.js
-  checksum: caabca4de6bae2e876c42897089fd496c80c96054898ff0672f4306bcba9b1a1d5cefacf2f3fff4e0e818f2b451df5d98a850e8a3c76d230c76dd44250e26b45
+  checksum: 29344116021558b47dd14211126f1d3170ee13776ca4a54dbb6a549ad15edd37c313f061d52a6cb5e4a2b559406cb66ef15f2df28f9c932c29d4b16411c076c7
   languageName: node
   linkType: hard
 
@@ -4305,7 +4305,7 @@ fsevents@~2.1.2:
   resolution: "remark-prism@workspace:."
   dependencies:
     ava: ^3.13.0
-    c8: ^7.3.2
+    c8: ^7.3.3
     classnames: ^2.2.6
     css-selector-parser: ^1.4.1
     escape-html: ^1.0.3
@@ -5514,14 +5514,14 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"v8-to-istanbul@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "v8-to-istanbul@npm:6.0.0"
+"v8-to-istanbul@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "v8-to-istanbul@npm:6.0.1"
   dependencies:
     "@types/istanbul-lib-coverage": ^2.0.1
     convert-source-map: ^1.6.0
     source-map: ^0.7.3
-  checksum: fabf13703d6a13a1697fe6075e7c228e3483d10497f58e200db84f9ba7b530ccfa889ca85279c361ac5b287b32c412313f43d664c0857c02fff524f3a60a734b
+  checksum: 603ff8f3b038c800e3df8b714fc3f7a8cce674bf6d456b3f5619a01b989e0982c990f9cd536ddd3fcdc537a9ec87cb1f2e60bc40dc3b488bfedfcab6e377d766
   languageName: node
   linkType: hard
 
