@@ -1,3 +1,9 @@
+## [1.1.18](https://github.com/sergioramos/remark-prism/compare/v1.1.17...v1.1.18) (2020-10-16)
+
+### Continuous Integration
+
+- **no-release:** fix release rules ([46fc048](https://github.com/sergioramos/remark-prism/commit/46fc048a5adcef70016c0347a00fc94e7011397b))
+
 ## [1.1.17](https://github.com/sergioramos/remark-prism/compare/v1.1.16...v1.1.17) (2020-10-16)
 
 ### Chores
