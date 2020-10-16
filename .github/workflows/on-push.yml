@@ -107,6 +107,7 @@ jobs:
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       with:
         node-module: true
-        release-rules: '[{"scope":"deps-dev","release":false},{"scope":"no-release","release":false},{"release":"patch","type":"build"},{"release":"patch","type":"chore"},{"release":"patch","type":"ci"},{"release":"patch","type":"docs"},{"release":"patch","type":"improvement"},{"release":"patch","type":"refactor"},{"release":"minor","type":"feat"},{"release":false,"subject":"*\\[skip release\\]*"}]'
+        release-rules: |
+          [{"scope":"deps-dev","release":false},{"scope":"no-release","release":false},{"release":"patch","type":"build"},{"release":"patch","type":"chore"},{"release":"patch","type":"ci"},{"release":"patch","type":"docs"},{"release":"patch","type":"improvement"},{"release":"patch","type":"refactor"},{"release":"minor","type":"feat"}]
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}
