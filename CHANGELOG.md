@@ -1,3 +1,20 @@
+## [1.1.16](https://github.com/sergioramos/remark-prism/compare/v1.1.15...v1.1.16) (2020-10-16)
+
+### Chores
+
+- **deps:** bump prismjs from 1.21.0 to 1.22.0 ([577c6ff](https://github.com/sergioramos/remark-prism/commit/577c6ff44e53f94d6b8a99587f9cc8ba46fbd544))
+- **deps-dev:** bump actions/cache from v2.1.1 to v2.1.2 ([54e8357](https://github.com/sergioramos/remark-prism/commit/54e83579363cfacc1d44b40817ca24143baf7c5d))
+- **deps-dev:** bump c8 from 7.3.2 to 7.3.3 ([2cf722c](https://github.com/sergioramos/remark-prism/commit/2cf722ce5f27084427ef60312eaa192dab1467e8))
+- **deps-dev:** bump eslint from 7.10.0 to 7.11.0 ([5e89f4a](https://github.com/sergioramos/remark-prism/commit/5e89f4aca26202fcf21f111130965b87e0fe2c96))
+- **deps-dev:** bump eslint-config-prettier to 6.13.0 ([6fa6422](https://github.com/sergioramos/remark-prism/commit/6fa64229ad972cf6a83a6a3bf3513f45f6a5d49c))
+- **deps-dev:** bump remark from 12.0.1 to 13.0.0 ([dea0702](https://github.com/sergioramos/remark-prism/commit/dea07023c9264b95e080edb9df0f5916c81b42f8))
+- **deps-dev:** bump ridedott/release-me-action to v3.2.3 ([bfbbac8](https://github.com/sergioramos/remark-prism/commit/bfbbac8ace68596333b2a77ab4b699418e041d12))
+- **deps-dev:** upgrade dependencies (c8, lint-staged) ([974f841](https://github.com/sergioramos/remark-prism/commit/974f841147388611df0bdc4c19a844f3988133e9))
+
+### Continuous Integration
+
+- don't release on deps-dev scope ([ee770c5](https://github.com/sergioramos/remark-prism/commit/ee770c5a60a6be59b15fce694629ff9bb97fc372))
+
 ## [1.1.15](https://github.com/sergioramos/remark-prism/compare/v1.1.14...v1.1.15) (2020-10-08)
 
 ### Chores
