@@ -1,3 +1,9 @@
+## [1.1.17](https://github.com/sergioramos/remark-prism/compare/v1.1.16...v1.1.17) (2020-10-16)
+
+### Chores
+
+- **deps-dev:** upgrade yarn ([9e4e138](https://github.com/sergioramos/remark-prism/commit/9e4e1387147f0cd11628d988ceae3799f9765d19))
+
 ## [1.1.16](https://github.com/sergioramos/remark-prism/compare/v1.1.15...v1.1.16) (2020-10-16)
 
 ### Chores
