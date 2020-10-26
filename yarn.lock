@@ -1339,10 +1339,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"devtools-protocol@npm:0.0.799653":
-  version: 0.0.799653
-  resolution: "devtools-protocol@npm:0.0.799653"
-  checksum: 9a507f02996c5ffc5081d0c74a887ac0d7bd0bcce88964ee2166bd18c180f4f85c6aee26a00304666ea0c141add14dd0d4947db72331fbe8b708021973c76900
+"devtools-protocol@npm:0.0.809251":
+  version: 0.0.809251
+  resolution: "devtools-protocol@npm:0.0.809251"
+  checksum: 06439069ebba4f317b1a1c080597f0fc698740dcd2d06acbeab05db5f27e027cf0dfa7a5cc045720af4d1a7879e3b987db6fe6bbaae4d63a735724245897764d
   languageName: node
   linkType: hard
 
@@ -3460,6 +3460,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"node-fetch@npm:^2.6.1":
+  version: 2.6.1
+  resolution: "node-fetch@npm:2.6.1"
+  checksum: cbb171635e538162b977eac5dfe7a1e07a9a02e991924377a6435502291e2f823d306b95aabc455caebf4a118ccf836868462bc70ccc3095af02bb9da61fda37
+  languageName: node
+  linkType: hard
+
 "node-gyp@npm:latest":
   version: 7.1.1
   resolution: "node-gyp@npm:7.1.1"
@@ -4115,14 +4122,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"puppeteer@npm:^5.3.1":
-  version: 5.3.1
-  resolution: "puppeteer@npm:5.3.1"
+"puppeteer@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "puppeteer@npm:5.4.0"
   dependencies:
     debug: ^4.1.0
-    devtools-protocol: 0.0.799653
+    devtools-protocol: 0.0.809251
     extract-zip: ^2.0.0
     https-proxy-agent: ^4.0.0
+    node-fetch: ^2.6.1
     pkg-dir: ^4.2.0
     progress: ^2.0.1
     proxy-from-env: ^1.0.0
@@ -4130,7 +4138,7 @@ fsevents@~2.1.2:
     tar-fs: ^2.0.0
     unbzip2-stream: ^1.3.3
     ws: ^7.2.3
-  checksum: f9e9788984d94bc08cabc2169c8a27f24f5124e8281a9a2e617a10524bd61875e270987f739e9482a2b0659e36f3046d61ae055ac39e92ef61171ff36292fa65
+  checksum: bfd365815789a773b4f55d5d4607b2b152b4a060267dd3ef4d2ed1969bfd7c7d50822233817bbba58b6727a663e049333e56ef3468154fbbe262f2f59ac06a17
   languageName: node
   linkType: hard
 
@@ -4280,7 +4288,7 @@ fsevents@~2.1.2:
     parse-numeric-range: ^1.2.0
     prettier: ^2.1.2
     prismjs: ^1.22.0
-    puppeteer: ^5.3.1
+    puppeteer: ^5.4.0
     remark: ^13.0.0
     remark-html: ^13.0.1
     unist-builder: ^2.0.3
