@@ -202,7 +202,7 @@ module.exports = (options = {}) => (tree) => {
         );
       }, '');
 
-    const code = h('code', {}, u('raw', raw));
+    const code = h('code', { className: `language-${lang}` }, u('raw', raw));
     const pre = h(
       'div',
       { className: 'remark-highlight' },
@@ -215,7 +215,7 @@ module.exports = (options = {}) => (tree) => {
     return u(
       'html',
       toHTML(/^inline/.test(type) ? code : pre, {
-        allowDangerousHTML: true,
+        allowDangerousHtml: true,
       }),
     );
   });
