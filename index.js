@@ -162,7 +162,10 @@ const parseLang = (str) => {
     .replace(/\}$/, '');
 
   const attrs = selectors.length ? selectorToAttrs(selectors) : {};
-  const className = classNames(lang ? `language-${lang}` : '', attrs.class);
+  const className = classNames(
+    lang ? `language-${lang}` : 'language-',
+    attrs.class,
+  );
   const { legend = '', ...restAttrs } = attrs;
 
   return {
