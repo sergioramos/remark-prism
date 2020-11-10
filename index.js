@@ -163,7 +163,7 @@ const parseLang = (str) => {
 
   const attrs = selectors.length ? selectorToAttrs(selectors) : {};
   const className = classNames(
-    lang ? `language-${lang}` : 'language-',
+    lang ? `language-${lang}` : 'language-unknown',
     attrs.class,
   );
   const { legend = '', ...restAttrs } = attrs;
@@ -205,7 +205,11 @@ module.exports = (options = {}) => (tree) => {
         );
       }, '');
 
-    const code = h('code', { className: `language-${lang}` }, u('raw', raw));
+    const code = h(
+      'code',
+      { className: `language-${lang || 'unknown'}` },
+      u('raw', raw),
+    );
     const pre = h(
       'div',
       { className: 'remark-highlight' },
