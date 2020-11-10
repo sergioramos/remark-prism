@@ -215,7 +215,7 @@ module.exports = (options = {}) => (tree) => {
     return u(
       'html',
       toHTML(/^inline/.test(type) ? code : pre, {
-        allowDangerousHTML: true,
+        allowDangerousHtml: true,
       }),
     );
   });
