@@ -1,3 +1,17 @@
+## [1.1.18](https://github.com/sergioramos/remark-prism/compare/v1.1.17...v1.1.18) (2020-11-10)
+
+### Chores
+
+- **release:** v1.1.18 ([bb04ac1](https://github.com/sergioramos/remark-prism/commit/bb04ac13946baec2ee567d42e751308f906eb09f))
+
+### Continuous Integration
+
+- **no-release:** fix release rules ([46fc048](https://github.com/sergioramos/remark-prism/commit/46fc048a5adcef70016c0347a00fc94e7011397b))
+
+### Other
+
+- Fix deprecation notice ([a24f9dd](https://github.com/sergioramos/remark-prism/commit/a24f9dd7331ea7f65238916459fe53fc1b378e5e)), closes [/github.com/syntax-tree/hast-util-to-html/blob/main/lib/index.js#L22](https://github.com//github.com/syntax-tree/hast-util-to-html/blob/main/lib/index.js/issues/L22)
+
 ## [1.1.18](https://github.com/sergioramos/remark-prism/compare/v1.1.17...v1.1.18) (2020-10-16)
 
 ### Continuous Integration
