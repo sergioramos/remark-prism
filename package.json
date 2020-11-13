@@ -34,6 +34,8 @@
     "unist-util-map": "^2.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "ava": "^3.13.0",
     "c8": "^7.3.4",
     "eslint": "^7.11.0",
@@ -50,7 +52,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -84,6 +87,16 @@
       "new-cap": 0,
       "camelcase": 0,
       "capitalized-comments": 0
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "body-max-line-length": [
+        0
+      ]
     }
   }
 }
