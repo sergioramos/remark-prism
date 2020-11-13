@@ -17,7 +17,7 @@ jobs:
       uses: actions/cache@v2.1.3
       with:
         path: .yarn
-        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('yarn.lock') }}
     - name: Install dependencies
       run: yarn install --immutable
       env:
@@ -56,7 +56,7 @@ jobs:
       uses: actions/cache@v2.1.3
       with:
         path: .yarn
-        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('yarn.lock') }}
     - name: Install dependencies
       run: yarn install --immutable --immutable-cache
     - name: ESLint
@@ -79,7 +79,7 @@ jobs:
       uses: actions/cache@v2.1.3
       with:
         path: .yarn
-        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('yarn.lock') }}
     - name: Install dependencies
       run: yarn install --immutable --immutable-cache
     - name: Test
@@ -88,7 +88,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         result_path: coverage/lcov.info
-        min_coverage: 90
+        min_coverage: 85
         type: lcov
 
 ###############################################################################
