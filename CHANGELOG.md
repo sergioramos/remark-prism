@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/sergioramos/remark-prism/compare/v1.1.18...v1.2.0) (2020-11-13)
+
+### Features
+
+- for compatibility, code also have language (#44) ([3a3c448](https://github.com/sergioramos/remark-prism/commit/3a3c44838edadf63f95bd39aecfc3c2589d62b3b)), closes [#44](https://github.com/sergioramos/remark-prism/issues/44)
+
 ## [1.1.18](https://github.com/sergioramos/remark-prism/compare/v1.1.17...v1.1.18) (2020-11-10)
 
 ### Chores
