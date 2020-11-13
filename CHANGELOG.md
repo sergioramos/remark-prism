@@ -1,3 +1,21 @@
+## [1.2.1](https://github.com/sergioramos/remark-prism/compare/v1.2.0...v1.2.1) (2020-11-13)
+
+### Chores
+
+- **deps-dev:** bump actions/cache from v2.1.2 to v2.1.3 ([cdb3af3](https://github.com/sergioramos/remark-prism/commit/cdb3af3d77884ad3360171166d09a1fb877abd96))
+- **deps-dev:** bump c8 from 7.3.4 to 7.3.5 ([960ce1d](https://github.com/sergioramos/remark-prism/commit/960ce1d26d2ba3ae2942614c089084dbca999fd6))
+- **deps-dev:** bump eslint from 7.11.0 to 7.12.0 ([3bb283b](https://github.com/sergioramos/remark-prism/commit/3bb283bd91c909de6ffd7889fc1698897f941279))
+- **deps-dev:** bump eslint-config-prettier from 6.13.0 to 6.14.0 ([a9e91ab](https://github.com/sergioramos/remark-prism/commit/a9e91ab7206781ad75455e8e814bcc6ee7d0ebf8))
+- **deps-dev:** bump lint-staged from 10.4.1 to 10.4.2 ([93d3790](https://github.com/sergioramos/remark-prism/commit/93d3790f0295c214c51e29c069ea682423e804fc))
+- **deps-dev:** bump puppeteer from 5.3.1 to 5.4.0 ([b667cfc](https://github.com/sergioramos/remark-prism/commit/b667cfcbfb7d8b621822ba382208e0d5c314d8e3))
+- **deps-dev:** bump ridedott/release-me-action from v3.2.3 to v3.2.5 ([595fc41](https://github.com/sergioramos/remark-prism/commit/595fc41290ef080c9b998b434a960b8bee89c2ad))
+- **deps-dev:** bump rlespinasse/github-slug-action from 2.1.1 to 3.1.0 ([fff1caf](https://github.com/sergioramos/remark-prism/commit/fff1caf56eeedec8200d930fc741fc755ffadc9f))
+- **deps-dev:** bump wagoid/commitlint-github-action from v2.0.2 to v2.1.1 ([edc916d](https://github.com/sergioramos/remark-prism/commit/edc916d99531796efc4ca820d96d28408e0cf8e9))
+
+### Continuous Integration
+
+- add commitlint config ([7180369](https://github.com/sergioramos/remark-prism/commit/718036969fe2dbf745a9c2dd8d0e07b7de7ebd7f))
+
 # [1.2.0](https://github.com/sergioramos/remark-prism/compare/v1.1.18...v1.2.0) (2020-11-13)
 
 ### Features
