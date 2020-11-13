@@ -1,199 +1,208 @@
+const test = require('ava');
+const { writeFile } = require('mz/fs');
 const { join } = require('path');
 const puppeteer = require('puppeteer');
-const { readFile, writeFile } = require('mz/fs');
 const prettier = require('prettier');
-const remark = require('remark');
-const test = require('ava');
+const format = require('rehype-format');
+const html = require('rehype-stringify');
+const markdown = require('remark-parse');
+const vfile = require('to-vfile');
+const unified = require('unified');
+
+const prism = require('..');
 
 const { CI = 'false' } = process.env;
 const FIXTURES = join(__dirname, 'fixtures');
 const OUTPUTS = join(__dirname, 'outputs');
 
-const compile = async (src, options) => {
+const compile = async (testcase, options) => {
   const config = await prettier.resolveConfig(__filename);
 
   const prettify = (str) => {
     return prettier.format(str, { ...config, parser: 'html' });
   };
 
-  const handleResult = (resolve, reject) => {
-    return (err, file) => {
-      if (err) {
-        return reject(err);
-      }
-
-      return resolve(
-        prettify(`<link href="./theme.css" rel="stylesheet" />${String(file)}`),
-      );
-    };
-  };
-
   return new Promise((resolve, reject) => {
-    return remark()
-      .use(require('..'), options)
-      .use(require('remark-html'))
-      .process(src, handleResult(resolve, reject));
+    const file = vfile.readSync(join(FIXTURES, `${testcase}.md`));
+
+    return unified()
+      .use(markdown)
+      .use(prism, options)
+      .use(format)
+      .use(html)
+      .process(file, (err, file) => {
+        if (err) {
+          return reject(err);
+        }
+
+        return resolve(
+          prettify(
+            '<link href="./theme.css" rel="stylesheet" />'.concat(String(file)),
+          ),
+        );
+      });
   });
 };
 
-const takeScreenshot = async (html, path) => {
+const takeScreenshot = async (file, path) => {
   if (JSON.parse(CI)) {
     return;
   }
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-
-  await page.setContent(html, { waitUntil: 'networkidle2' });
+  await page.goto(`file://${file}`, { waitUntil: 'networkidle0' });
+  await page.evaluateHandle('document.fonts.ready');
   await page.screenshot({ path, fullPage: true });
-
   await browser.close();
 };
 
 test('languages', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'languages.md'));
-  const output = await compile(markdown);
+  const html = await compile('languages');
 
-  await writeFile(join(OUTPUTS, 'languages.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'languages.png'));
+  const file = join(OUTPUTS, 'languages.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'languages.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('autolinker', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'autolinker.md'));
-  const output = await compile(markdown, {
-    plugins: ['prismjs/plugins/autolinker/prism-autolinker'],
+  const html = await compile('autolinker', {
+    plugins: ['autolinker'],
   });
 
-  await writeFile(join(OUTPUTS, 'autolinker.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'autolinker.png'));
+  const file = join(OUTPUTS, 'autolinker.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'autolinker.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('command-line', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'command-line.md'));
-  const output = await compile(markdown, {
-    plugins: ['prismjs/plugins/command-line/prism-command-line'],
+  const html = await compile('command-line', {
+    plugins: ['command-line'],
   });
 
-  await writeFile(join(OUTPUTS, 'command-line.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'command-line.png'));
+  const file = join(OUTPUTS, 'command-line.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'command-line.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('data-uri-highlight', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'data-uri-highlight.md'));
-  const output = await compile(markdown, {
-    plugins: ['prismjs/plugins/data-uri-highlight/prism-data-uri-highlight'],
+  const html = await compile('data-uri-highlight', {
+    plugins: ['data-uri-highlight'],
   });
 
-  await writeFile(join(OUTPUTS, 'data-uri-highlight.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'data-uri-highlight.png'));
+  const file = join(OUTPUTS, 'data-uri-highlight.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'data-uri-highlight.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('diff-highlight', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'diff-highlight.md'));
-  const output = await compile(markdown, {
-    plugins: ['prismjs/plugins/diff-highlight/prism-diff-highlight'],
+  const html = await compile('diff-highlight', {
+    plugins: ['diff-highlight'],
   });
 
-  await writeFile(join(OUTPUTS, 'diff-highlight.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'diff-highlight.png'));
+  const file = join(OUTPUTS, 'diff-highlight.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'diff-highlight.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('inline-color', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'inline-color.md'));
-  const output = await compile(markdown, {
-    plugins: ['prismjs/plugins/inline-color/prism-inline-color'],
+  const html = await compile('inline-color', {
+    plugins: ['inline-color'],
   });
 
-  await writeFile(join(OUTPUTS, 'inline-color.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'inline-color.png'));
+  const file = join(OUTPUTS, 'inline-color.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'inline-color.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('keep-markup', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'keep-markup.md'));
-  const output = await compile(markdown, {
-    plugins: ['prismjs/plugins/keep-markup/prism-keep-markup'],
+  const html = await compile('keep-markup', {
+    plugins: ['keep-markup'],
   });
 
-  await writeFile(join(OUTPUTS, 'keep-markup.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'keep-markup.png'));
+  const file = join(OUTPUTS, 'keep-markup.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'keep-markup.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('legend', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'legend.md'));
-  const output = await compile(markdown);
+  const html = await compile('legend');
 
-  await writeFile(join(OUTPUTS, 'legend.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'legend.png'));
+  const file = join(OUTPUTS, 'legend.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'legend.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('line-highlight', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'line-highlight.md'));
-  const output = await compile(markdown);
+  const html = await compile('line-highlight', {
+    plugins: ['line-highlight'],
+  });
 
-  await writeFile(join(OUTPUTS, 'line-highlight.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'line-highlight.png'));
+  const file = join(OUTPUTS, 'line-highlight.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'line-highlight.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('line-numbers', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'line-numbers.md'));
-  const output = await compile(markdown, {
-    plugins: ['prismjs/plugins/line-numbers/prism-line-numbers'],
+  const html = await compile('line-numbers', {
+    plugins: ['line-numbers'],
   });
 
-  await writeFile(join(OUTPUTS, 'line-numbers.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'show-numbers.png'));
+  const file = join(OUTPUTS, 'line-numbers.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'show-numbers.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('no-lang', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'no-lang.md'));
-  const output = await compile(markdown);
+  const html = await compile('no-lang');
 
-  await writeFile(join(OUTPUTS, 'no-lang.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'no-lang.png'));
+  const file = join(OUTPUTS, 'no-lang.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'no-lang.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('show-invisibles', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'show-invisibles.md'));
-  const output = await compile(markdown, {
-    plugins: ['prismjs/plugins/show-invisibles/prism-show-invisibles'],
+  const html = await compile('show-invisibles', {
+    plugins: ['show-invisibles'],
   });
 
-  await writeFile(join(OUTPUTS, 'show-invisibles.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'show-invisibles.png'));
+  const file = join(OUTPUTS, 'show-invisibles.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'show-invisibles.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });
 
 test('treeview', async (t) => {
-  const markdown = await readFile(join(FIXTURES, 'treeview.md'));
-  const output = await compile(markdown, {
-    plugins: ['prismjs/plugins/treeview/prism-treeview'],
+  const html = await compile('treeview', {
+    plugins: ['treeview'],
   });
 
-  await writeFile(join(OUTPUTS, 'treeview.html'), output);
-  await takeScreenshot(output, join(OUTPUTS, 'treeview.png'));
+  const file = join(OUTPUTS, 'treeview.html');
+  await writeFile(file, html);
+  await takeScreenshot(file, join(OUTPUTS, 'treeview.png'));
 
-  t.snapshot(output);
+  t.snapshot(html);
 });

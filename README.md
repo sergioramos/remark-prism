@@ -105,12 +105,16 @@ It supports some [Prism](https://prismjs.com/) plugins:
 remark()
   .use(require('remark-prism'), {
     plugins: [
-      'prismjs/plugins/autolinker/prism-autolinker',
-      'prismjs/plugins/diff-highlight/prism-diff-highlight',
-      'prismjs/plugins/inline-color/prism-inline-color',
-      'prismjs/plugins/line-numbers/prism-line-numbers',
-      'prismjs/plugins/treeview/prism-treeview',
-      'prismjs/plugins/show-invisibles/prism-show-invisibles',
+      'autolinker',
+      'command-line',
+      'data-uri-highlight',
+      'diff-highlight',
+      'inline-color',
+      'keep-markup',
+      'line-numbers',
+      'line-highlight',
+      'show-invisibles',
+      'treeview',
     ],
   })
   .use(require('remark-html'))
