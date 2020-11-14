@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/sergioramos/remark-prism/compare/v1.3.0...v1.3.1) (2020-11-14)
+
+### Bug Fixes
+
+- add missing node props to the prism branch ([de05c22](https://github.com/sergioramos/remark-prism/commit/de05c2283ebe1d6f2acb7d0499b03232933c7ad7))
+
 # [1.3.0](https://github.com/sergioramos/remark-prism/compare/v1.2.1...v1.3.0) (2020-11-14)
 
 ### Features
