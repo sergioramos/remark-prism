@@ -1,3 +1,9 @@
+# [1.3.0](https://github.com/sergioramos/remark-prism/compare/v1.2.1...v1.3.0) (2020-11-14)
+
+### Features
+
+- deal exclusively with a tree, not html ([6f5da71](https://github.com/sergioramos/remark-prism/commit/6f5da71e202081f1b86930d86c8c365cd8fdcc1f))
+
 ## [1.2.1](https://github.com/sergioramos/remark-prism/compare/v1.2.0...v1.2.1) (2020-11-13)
 
 ### Chores
