@@ -109,14 +109,20 @@ const deserialize = (html) => {
   const toHast = ({ type, name, attribs = {}, data: value, children = [] }) => {
     const { class: className = '', ...attrs } = attribs;
 
+    const properties = {
+      ...attrs,
+      className: className.split(/\s/),
+    };
+
     return {
       type: type === 'tag' ? 'element' : 'text',
       value,
       tagName: name,
-      properties: {
-        ...attrs,
-        className: className.split(/\s/),
+      data: {
+        hName: name,
+        hProperties: properties,
       },
+      properties,
       children: children.map(toHast),
     };
   };

@@ -33,8 +33,13 @@
     "unist-util-map": "^2.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-react": "^7.12.5",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@mdx-js/mdx": "^1.6.21",
+    "@rollup/plugin-virtual": "^2.0.3",
+    "apr-parallel": "^3.0.3",
     "ava": "^3.13.0",
     "c8": "^7.3.5",
     "eslint": "^7.13.0",
@@ -46,9 +51,13 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
     "puppeteer": "^5.4.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "rehype-format": "^3.1.0",
     "rehype-stringify": "^8.0.0",
     "remark-parse": "^9.0.0",
+    "rollup": "^2.33.1",
+    "rollup-plugin-babel": "^4.4.0",
     "serve": "^11.3.2",
     "to-vfile": "^6.1.0",
     "unified": "^9.2.0"
