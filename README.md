@@ -43,60 +43,6 @@ require('remark')()
 </div>
 ```
 
-### `showSpotlight`
-
-Based [`gatsby-remark-prismjs`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs), it supports natively the [`line-highlight`](https://prismjs.com/plugins/line-highlight/) since that plugin doesn't work well in SSR.
-
-```js
-remark()
-  .use(require('remark-prism'), { showSpotlight: true })
-  .use(require('remark-html'))
-  .process(src, console.log);
-```
-
-```
-\`\`\`html{1,3-4,8}
-...
-```
-
-Required CSS:
-
-```css
-/* from: https://github.com/chasm/gatsby-remark-prismjs/blob/af90edfd6f378a7ffd8d70e50a540077795e5c2c/README.md#L83-L110 */
-/* container of the code block */
-.remark-highlight {
-  border: 1px solid #dddddd;
-  border-radius: 0.3em;
-  margin: 0.5em 0;
-  overflow: auto;
-}
-
-.remark-highlight pre[class*='language-'] {
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  overflow: initial;
-  float: left; /* 1 */
-  min-width: 100%; /* 2 */
-}
-
-/* highlight for each spotlight line */
-.remark-highlight-code-line {
-  background-color: #feb;
-  display: block;
-  margin-right: -1em;
-  margin-left: -1em;
-  padding-right: 1em;
-  padding-left: 0.75em;
-  border-left: 0.25em solid #f99;
-}
-
-/* Gutter for line numbers when the line-numbers plugin is active */
-.remark-highlight pre[class*='language-'].line-numbers {
-  padding-left: 2.8em;
-}
-```
-
 ### `transformInlineCode`
 
 Add relevant class names to inline code snippets. For example when you use single backtick code examples.
