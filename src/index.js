@@ -42,7 +42,7 @@ const selectorToAttrs = (selector) => {
 const parseLang = (str) => {
   const match = (regexp) => {
     const m = (str || '').match(regexp);
-    return Array.isArray(m) ? m : [];
+    return Array.isArray(m) ? m.filter(Boolean) : [];
   };
 
   const [lang = 'unknown'] = match(/^[a-zA-Z\d-]*/g);
