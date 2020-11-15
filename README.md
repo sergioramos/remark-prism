@@ -97,6 +97,17 @@ Required CSS:
 }
 ```
 
+### `transformInlineCode`
+
+Add relevant class names to inline code snippets. For example when you use single backtick code examples.
+
+```js
+remark()
+  .use(require('remark-prism'), { transformInlineCode: true })
+  .use(require('remark-html'))
+  .process(src, console.log);
+```
+
 ### plugins
 
 It supports some [Prism](https://prismjs.com/) plugins:
