@@ -109,9 +109,10 @@ const deserialize = (html) => {
   const toHast = ({ type, name, attribs = {}, data: value, children = [] }) => {
     const { class: className = '', ...attrs } = attribs;
 
+    const _children = children.map(toHast);
     const properties = {
       ...attrs,
-      className: className.split(/\s/),
+      className: className.split(/\s/).filter(Boolean),
     };
 
     return {
@@ -121,9 +122,10 @@ const deserialize = (html) => {
       data: {
         hName: name,
         hProperties: properties,
+        hChildren: _children,
       },
       properties,
-      children: children.map(toHast),
+      children: _children,
     };
   };
 

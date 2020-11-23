@@ -5,9 +5,6 @@ const mdx = require('@mdx-js/mdx');
 const { join } = require('path');
 const puppeteer = require('puppeteer');
 const prettier = require('prettier');
-const format = require('rehype-format');
-const html = require('rehype-stringify');
-const markdown = require('remark-parse');
 const Parallel = require('apr-parallel');
 const rollup = require('rollup');
 const React = require('react');
@@ -100,10 +97,10 @@ const compileHtml = async (testcase, options) => {
     const file = vfile.readSync(join(FIXTURES, `${testcase}.md`));
 
     return unified()
-      .use(markdown)
+      .use(require('remark-parse'))
       .use(prism, options)
-      .use(format)
-      .use(html)
+      .use(require('rehype-format'))
+      .use(require('rehype-stringify'))
       .process(file, (err, file) => {
         if (err) {
           return reject(err);

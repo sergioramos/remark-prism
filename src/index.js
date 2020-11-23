@@ -11,6 +11,7 @@ const h = (type, attrs = {}, children = []) => {
     data: {
       hName: type,
       hProperties: attrs,
+      hChildren: children,
     },
     properties: attrs,
     children,
@@ -74,18 +75,30 @@ module.exports = (options = {}) => (tree) => {
   const { transformInlineCode = false } = options;
 
   return map(tree, (node) => {
-    const { type } = node;
+    const { type, tagName } = node;
 
-    if (!['code', 'inlineCode'].includes(type)) {
+    if (
+      !['code', 'inlineCode'].includes(type) &&
+      !['code', 'inlineCode'].includes(tagName)
+    ) {
       return node;
     }
 
-    if (type === 'inlineCode' && !transformInlineCode) {
+    if (
+      (type === 'inlineCode' && !transformInlineCode) ||
+      (type === 'tagName' && !transformInlineCode)
+    ) {
       return node;
     }
 
-    const { value } = node;
-    const { lang = 'unknown', attrs, legend, range } = parseLang(node.lang);
+    const { value, properties = {}, children = [] } = node;
+    const { className: classNameArr = [] } = properties;
+    const langClassName = classNameArr
+      .map((lang) => lang.replace(/language-/, ''))
+      .join(' ');
+
+    const langToken = node.lang || langClassName;
+    const { lang = 'unknown', attrs, legend, range } = parseLang(langToken);
     const { class: className = '', ...restAttrs } = attrs;
 
     const code = h(
@@ -93,7 +106,12 @@ module.exports = (options = {}) => (tree) => {
       { className: `language-${lang}` },
       highlight({
         lang,
-        value,
+        value:
+          value ||
+          children
+            .filter(({ type }) => type === 'text')
+            .map(({ value }) => value)
+            .pop(),
         attrs,
         range,
       }),
