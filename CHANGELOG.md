@@ -1,3 +1,22 @@
+## [1.3.2](https://github.com/sergioramos/remark-prism/compare/v1.3.1...v1.3.2) (2020-11-23)
+
+### Bug Fixes
+
+- filter out empty language strings ([94b4d9a](https://github.com/sergioramos/remark-prism/commit/94b4d9aaf601d795cf9901cba192a2312f7c777e))
+- restore indentation ([295ac7a](https://github.com/sergioramos/remark-prism/commit/295ac7a1aeb660779564c3a544ba9f49964dc085)), closes [#50](https://github.com/sergioramos/remark-prism/issues/50)
+
+### Chores
+
+- **deps-dev:** bump ridedott/release-me-action from v3.2.5 to v3.2.12 ([871080b](https://github.com/sergioramos/remark-prism/commit/871080bab6453beca77e3b1639beb1afca6eacaa))
+- **deps-dev:** bump rollup from 2.33.1 to 2.33.2 ([445eb27](https://github.com/sergioramos/remark-prism/commit/445eb274caac618b1ceed980748f03302da7062b))
+- **deps-dev:** bump wagoid/commitlint-github-action from v2.1.1 to v2.1.2 ([58df9db](https://github.com/sergioramos/remark-prism/commit/58df9dbf70fd32bf909a38d234dfa922128983fe))
+- **deps-dev:** upgrade dependencies ([7204d46](https://github.com/sergioramos/remark-prism/commit/7204d468b438d6a590be8d85962813cfc34bcbe4))
+
+### Documentation
+
+- add missing option ([48a9fd7](https://github.com/sergioramos/remark-prism/commit/48a9fd72e1da6c7faf50554974446bbcd64bd9fd))
+- remove outdated docs ([0046854](https://github.com/sergioramos/remark-prism/commit/004685421bf84d3b92fd185981994b884e1016ef))
+
 ## [1.3.1](https://github.com/sergioramos/remark-prism/compare/v1.3.0...v1.3.1) (2020-11-14)
 
 ### Bug Fixes
