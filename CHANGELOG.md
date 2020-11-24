@@ -1,3 +1,23 @@
+## [1.3.3](https://github.com/sergioramos/remark-prism/compare/v1.3.2...v1.3.3) (2020-11-24)
+
+### Chores
+
+- **deps-dev:** upgrade dependencies ([6349741](https://github.com/sergioramos/remark-prism/commit/63497411126bbcdc355efbf9e5154c4b047cca45))
+
+### Continuous Integration
+
+- remove coverage check ([1395a2e](https://github.com/sergioramos/remark-prism/commit/1395a2e6426722aa2312063553f2ddf218e7bb3b))
+
+### Documentation
+
+- add more usage examples ([f48e1cd](https://github.com/sergioramos/remark-prism/commit/f48e1cd4f52d4777503a619d0496a8572085fe17))
+
+### Tests
+
+- add rehype and mdast tests ([c4fc721](https://github.com/sergioramos/remark-prism/commit/c4fc721678edcf44f606ae6b766a1d817aeb9876))
+- add test case with all plugins ([a08507a](https://github.com/sergioramos/remark-prism/commit/a08507ae265d8e1af8c53147639db983dcdfba3d))
+- update snapshots ([f0da46e](https://github.com/sergioramos/remark-prism/commit/f0da46e7822701e441f9c737226a91349208a447))
+
 ## [1.3.2](https://github.com/sergioramos/remark-prism/compare/v1.3.1...v1.3.2) (2020-11-23)
 
 ### Bug Fixes
