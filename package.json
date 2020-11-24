@@ -19,10 +19,9 @@
   "scripts": {
     "eslint": "eslint . --ext .js",
     "fmt": "prettier --config package.json --write '**/*'",
-    "test": "NODE_ENV=test c8 -r lcovonly -r text ava --serial"
+    "test": "NODE_ENV=test ava --serial"
   },
   "dependencies": {
-    "apr-for-each": "^3.0.3",
     "classnames": "^2.2.6",
     "css-selector-parser": "^1.4.1",
     "escape-html": "^1.0.3",
@@ -31,8 +30,6 @@
     "parse5": "^6.0.1",
     "parse5-htmlparser2-tree-adapter": "^6.0.1",
     "prismjs": "^1.22.0",
-    "remark-html": "^13.0.1",
-    "remark-stringify": "^9.0.0",
     "unist-util-map": "^2.0.1"
   },
   "devDependencies": {
@@ -42,9 +39,9 @@
     "@commitlint/config-conventional": "^11.0.0",
     "@mdx-js/mdx": "^1.6.21",
     "@rollup/plugin-virtual": "^2.0.3",
+    "apr-for-each": "^3.0.3",
     "apr-parallel": "^3.0.3",
     "ava": "^3.13.0",
-    "c8": "^7.3.5",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-xo-space": "^0.25.0",
@@ -58,7 +55,10 @@
     "react-dom": "^17.0.1",
     "rehype-format": "^3.1.0",
     "rehype-stringify": "^8.0.0",
+    "remark-html": "^13.0.1",
     "remark-parse": "^9.0.0",
+    "remark-rehype": "^8.0.0",
+    "remark-stringify": "^9.0.0",
     "rollup": "^2.33.3",
     "rollup-plugin-babel": "^4.4.0",
     "serve": "^11.3.2",

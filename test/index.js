@@ -130,6 +130,7 @@ const compileHAst = async (testcase, options) => {
     return unified()
       .use(require('remark-parse'))
       .use(prism, options)
+      .use(require('remark-rehype'))
       .use(require('rehype-format'))
       .use(require('rehype-stringify'))
       .process(file, (err, file) => {
@@ -179,7 +180,21 @@ const fixtures = readdirSync(FIXTURES)
 for (const name of fixtures) {
   test(name, async (t) => {
     const [mdast, hast, jsx] = await compileAll(name, {
-      plugins: [PLUGINS.includes(name) ? name : undefined].filter(Boolean),
+      plugins: [
+        ...(PLUGINS.includes(name)
+          ? [name]
+          : name === 'all'
+          ? [
+              'autolinker',
+              'command-line',
+              'data-uri-highlight',
+              'diff-highlight',
+              'inline-color',
+              'line-numbers',
+              'treeview',
+            ]
+          : []),
+      ].filter(Boolean),
     });
 
     t.snapshot(mdast);
