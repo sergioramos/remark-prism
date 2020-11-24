@@ -22,6 +22,7 @@
     "test": "NODE_ENV=test c8 -r lcovonly -r text ava --serial"
   },
   "dependencies": {
+    "apr-for-each": "^3.0.3",
     "classnames": "^2.2.6",
     "css-selector-parser": "^1.4.1",
     "escape-html": "^1.0.3",
@@ -30,6 +31,8 @@
     "parse5": "^6.0.1",
     "parse5-htmlparser2-tree-adapter": "^6.0.1",
     "prismjs": "^1.22.0",
+    "remark-html": "^13.0.1",
+    "remark-stringify": "^9.0.0",
     "unist-util-map": "^2.0.1"
   },
   "devDependencies": {

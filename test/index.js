@@ -1,10 +1,11 @@
 const test = require('ava');
 const { transform } = require('@babel/core');
-const { readFile, writeFile } = require('mz/fs');
+const { readFile, writeFile, readdirSync } = require('mz/fs');
 const mdx = require('@mdx-js/mdx');
 const { join } = require('path');
 const puppeteer = require('puppeteer');
 const prettier = require('prettier');
+const { default: ForEach } = require('apr-for-each');
 const Parallel = require('apr-parallel');
 const rollup = require('rollup');
 const React = require('react');
@@ -14,6 +15,7 @@ const vfile = require('to-vfile');
 const unified = require('unified');
 
 const prism = require('..');
+const { PLUGINS } = require('../src/highlight');
 
 const { CI = 'false' } = process.env;
 const FIXTURES = join(__dirname, 'fixtures');
@@ -86,7 +88,36 @@ const compileJsx = async (src, options) => {
   );
 };
 
-const compileHtml = async (testcase, options) => {
+const compileMdAst = async (testcase, options) => {
+  const config = await prettier.resolveConfig(__filename);
+
+  const prettify = (str) => {
+    return prettier.format(str, { ...config, parser: 'html' });
+  };
+
+  return new Promise((resolve, reject) => {
+    const file = vfile.readSync(join(FIXTURES, `${testcase}.md`));
+
+    return unified()
+      .use(require('remark-parse'))
+      .use(require('remark-stringify'))
+      .use(prism, options)
+      .use(require('remark-html'))
+      .process(file, (err, file) => {
+        if (err) {
+          return reject(err);
+        }
+
+        return resolve(
+          prettify(
+            '<link href="./theme.css" rel="stylesheet" />'.concat(String(file)),
+          ),
+        );
+      });
+  });
+};
+
+const compileHAst = async (testcase, options) => {
   const config = await prettier.resolveConfig(__filename);
 
   const prettify = (str) => {
@@ -116,10 +147,16 @@ const compileHtml = async (testcase, options) => {
 };
 
 const compileAll = async (name, options = {}) => {
-  const { html, jsx } = await Parallel({
-    html: async () => {
-      const output = await compileHtml(name, options);
-      await writeFile(join(OUTPUTS, `${name}.html`), output);
+  const { mdast, hast, jsx } = await Parallel({
+    mdast: async () => {
+      const output = await compileMdAst(name, options);
+      await writeFile(join(OUTPUTS, `${name}.mdast.html`), output);
+
+      return output;
+    },
+    hast: async () => {
+      const output = await compileHAst(name, options);
+      await writeFile(join(OUTPUTS, `${name}.hast.html`), output);
 
       return output;
     },
@@ -132,246 +169,28 @@ const compileAll = async (name, options = {}) => {
     },
   });
 
-  return [html, jsx];
+  return [mdast, hast, jsx];
 };
 
-test('languages', async (t) => {
-  const [html, jsx] = await compileAll('languages');
+const fixtures = readdirSync(FIXTURES)
+  .filter((filename) => /\.md$/.test(filename))
+  .map((filename) => filename.replace(/\.md$/, ''));
 
-  t.snapshot(html);
-  t.snapshot(jsx);
+for (const name of fixtures) {
+  test(name, async (t) => {
+    const [mdast, hast, jsx] = await compileAll(name, {
+      plugins: [PLUGINS.includes(name) ? name : undefined].filter(Boolean),
+    });
 
-  await takeScreenshot(
-    join(OUTPUTS, 'languages.html'),
-    join(OUTPUTS, 'languages.png'),
-  );
+    t.snapshot(mdast);
+    t.snapshot(hast);
+    t.snapshot(jsx);
 
-  await takeScreenshot(
-    join(OUTPUTS, 'languages.jsx.html'),
-    join(OUTPUTS, 'languages.jsx.png'),
-  );
-});
-
-test('autolinker', async (t) => {
-  const [html, jsx] = await compileAll('autolinker', {
-    plugins: ['autolinker'],
+    await ForEach(['jsx', 'mdast', 'hast'], async (type) => {
+      return takeScreenshot(
+        join(OUTPUTS, `${name}.${type}.html`),
+        join(OUTPUTS, `${name}.${type}.png`),
+      );
+    });
   });
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'autolinker.html'),
-    join(OUTPUTS, 'autolinker.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'autolinker.jsx.html'),
-    join(OUTPUTS, 'autolinker.jsx.png'),
-  );
-});
-
-test('command-line', async (t) => {
-  const [html, jsx] = await compileAll('command-line', {
-    plugins: ['command-line'],
-  });
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'command-line.html'),
-    join(OUTPUTS, 'command-line.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'command-line.jsx.html'),
-    join(OUTPUTS, 'command-line.jsx.png'),
-  );
-});
-
-test('data-uri-highlight', async (t) => {
-  const [html, jsx] = await compileAll('data-uri-highlight', {
-    plugins: ['data-uri-highlight'],
-  });
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'data-uri-highlight.html'),
-    join(OUTPUTS, 'data-uri-highlight.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'data-uri-highlight.jsx.html'),
-    join(OUTPUTS, 'data-uri-highlight.jsx.png'),
-  );
-});
-
-test('diff-highlight', async (t) => {
-  const [html, jsx] = await compileAll('diff-highlight', {
-    plugins: ['diff-highlight'],
-  });
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'diff-highlight.html'),
-    join(OUTPUTS, 'diff-highlight.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'diff-highlight.jsx.html'),
-    join(OUTPUTS, 'diff-highlight.jsx.png'),
-  );
-});
-
-test('inline-color', async (t) => {
-  const [html, jsx] = await compileAll('inline-color', {
-    plugins: ['inline-color'],
-  });
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'inline-color.html'),
-    join(OUTPUTS, 'inline-color.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'inline-color.jsx.html'),
-    join(OUTPUTS, 'inline-color.jsx.png'),
-  );
-});
-
-test('keep-markup', async (t) => {
-  const [html, jsx] = await compileAll('keep-markup', {
-    plugins: ['keep-markup'],
-  });
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'keep-markup.html'),
-    join(OUTPUTS, 'keep-markup.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'keep-markup.jsx.html'),
-    join(OUTPUTS, 'keep-markup.jsx.png'),
-  );
-});
-
-test('legend', async (t) => {
-  const [html, jsx] = await compileAll('legend');
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'legend.html'),
-    join(OUTPUTS, 'legend.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'legend.jsx.html'),
-    join(OUTPUTS, 'legend.jsx.png'),
-  );
-});
-
-test('line-highlight', async (t) => {
-  const [html, jsx] = await compileAll('line-highlight', {
-    plugins: ['line-highlight'],
-  });
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'line-highlight.html'),
-    join(OUTPUTS, 'line-highlight.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'line-highlight.jsx.html'),
-    join(OUTPUTS, 'line-highlight.jsx.png'),
-  );
-});
-
-test('line-numbers', async (t) => {
-  const [html, jsx] = await compileAll('line-numbers', {
-    plugins: ['line-numbers'],
-  });
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'line-numbers.html'),
-    join(OUTPUTS, 'line-numbers.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'line-numbers.jsx.html'),
-    join(OUTPUTS, 'line-numbers.jsx.png'),
-  );
-});
-
-test('no-lang', async (t) => {
-  const [html, jsx] = await compileAll('no-lang');
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'no-lang.html'),
-    join(OUTPUTS, 'no-lang.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'no-lang.jsx.html'),
-    join(OUTPUTS, 'no-lang.jsx.png'),
-  );
-});
-
-test('show-invisibles', async (t) => {
-  const [html, jsx] = await compileAll('show-invisibles', {
-    plugins: ['show-invisibles'],
-  });
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'show-invisibles.html'),
-    join(OUTPUTS, 'show-invisibles.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'show-invisibles.jsx.html'),
-    join(OUTPUTS, 'show-invisibles.jsx.png'),
-  );
-});
-
-test('treeview', async (t) => {
-  const [html, jsx] = await compileAll('treeview', {
-    plugins: ['treeview'],
-  });
-
-  t.snapshot(html);
-  t.snapshot(jsx);
-
-  await takeScreenshot(
-    join(OUTPUTS, 'treeview.html'),
-    join(OUTPUTS, 'treeview.png'),
-  );
-
-  await takeScreenshot(
-    join(OUTPUTS, 'treeview.jsx.html'),
-    join(OUTPUTS, 'treeview.jsx.png'),
-  );
-});
+}

@@ -16,7 +16,6 @@ const PLUGINS = [
   'inline-color',
   'keep-markup',
   'line-numbers',
-  'line-highlight',
   'show-invisibles',
   'treeview',
 ];
@@ -187,3 +186,5 @@ module.exports = ({ plugins = [] }) => {
     return deserialize(highlightElement(value, attrs, range));
   };
 };
+
+module.exports.PLUGINS = PLUGINS;

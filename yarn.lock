@@ -1162,6 +1162,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"apr-for-each@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "apr-for-each@npm:3.0.3"
+  dependencies:
+    apr-engine-each: ^3.0.3
+    lodash.defaults: ^4.2.0
+  checksum: 657abeb256f9fd04ae9cc5af24802e85780c45e8da8618b734efda6e8c6efab9fd495b11fe8902f8aeb261a479b674df2f4a893ba723c50548824cf94dbaa706
+  languageName: node
+  linkType: hard
+
 "apr-parallel@npm:^3.0.3":
   version: 3.0.3
   resolution: "apr-parallel@npm:3.0.3"
@@ -3554,6 +3564,33 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"hast-util-sanitize@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "hast-util-sanitize@npm:3.0.2"
+  dependencies:
+    xtend: ^4.0.0
+  checksum: 4189e9b1b1e6a0f918efc5388ccce91da492a4932ad82e3c861d9b1e0ad16e3486c51addcbd6f7eb5af4e50099259fc6e691f851916d3cf2329696698bfecc94
+  languageName: node
+  linkType: hard
+
+"hast-util-to-html@npm:^7.0.0":
+  version: 7.1.2
+  resolution: "hast-util-to-html@npm:7.1.2"
+  dependencies:
+    ccount: ^1.0.0
+    comma-separated-tokens: ^1.0.0
+    hast-util-is-element: ^1.0.0
+    hast-util-whitespace: ^1.0.0
+    html-void-elements: ^1.0.0
+    property-information: ^5.0.0
+    space-separated-tokens: ^1.0.0
+    stringify-entities: ^3.0.1
+    unist-util-is: ^4.0.0
+    xtend: ^4.0.0
+  checksum: b48dae90937b50776c31711eac81f474a389514c706280cde81087e7e5e5e791acdfd89528b3a7b0fba4beb8955c91918f022d4a7a3fd2c9439125195ab1d2e8
+  languageName: node
+  linkType: hard
+
 "hast-util-to-html@npm:^7.1.1":
   version: 7.1.1
   resolution: "hast-util-to-html@npm:7.1.1"
@@ -4623,6 +4660,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"longest-streak@npm:^2.0.0":
+  version: 2.0.4
+  resolution: "longest-streak@npm:2.0.4"
+  checksum: ba5ebac14700c0a5f88a312be789b651c35bfed84bd5e2b4f04ac0898add697c36ede401d0b17dfaac0956171027b61ad49ad866ac949ae1d36f9e4ced60cbe1
+  languageName: node
+  linkType: hard
+
 "loose-envify@npm:^1.1.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
@@ -4742,6 +4786,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"mdast-util-definitions@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "mdast-util-definitions@npm:4.0.0"
+  dependencies:
+    unist-util-visit: ^2.0.0
+  checksum: a6ef899727823416949068e0c9ab1a812d0fbf04ead6b5db7e8be5f2436980a5d405d07205423577cea9da11f7b015b67d60aad9cde60df4466c04480c91dbde
+  languageName: node
+  linkType: hard
+
 "mdast-util-from-markdown@npm:^0.8.0":
   version: 0.8.0
   resolution: "mdast-util-from-markdown@npm:0.8.0"
@@ -4770,10 +4823,47 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"mdast-util-to-hast@npm:^10.0.0":
+  version: 10.0.1
+  resolution: "mdast-util-to-hast@npm:10.0.1"
+  dependencies:
+    "@types/mdast": ^3.0.0
+    "@types/unist": ^2.0.0
+    mdast-util-definitions: ^4.0.0
+    mdurl: ^1.0.0
+    unist-builder: ^2.0.0
+    unist-util-generated: ^1.0.0
+    unist-util-position: ^3.0.0
+    unist-util-visit: ^2.0.0
+  checksum: 9e228adcbc788f217a8ee501c45acb4cf77174be954ec2f7ac0b3f4e130f078b78a0900cb8c03c14626097399be100aa843791e8f194f9e1c1f3a81e18e630c8
+  languageName: node
+  linkType: hard
+
+"mdast-util-to-markdown@npm:^0.5.0":
+  version: 0.5.4
+  resolution: "mdast-util-to-markdown@npm:0.5.4"
+  dependencies:
+    "@types/unist": ^2.0.0
+    longest-streak: ^2.0.0
+    mdast-util-to-string: ^2.0.0
+    parse-entities: ^2.0.0
+    repeat-string: ^1.0.0
+    zwitch: ^1.0.0
+  checksum: 5224d69dbf7abe7bdcc2808f6542e7beb702a53b6514a4b688e527956a9cc8d65a3c7cece2540f0fbac8d868f892a9a4ba7339dbfcbd8cd02372ce1154ff81e8
+  languageName: node
+  linkType: hard
+
 "mdast-util-to-string@npm:^1.0.0":
   version: 1.1.0
   resolution: "mdast-util-to-string@npm:1.1.0"
   checksum: 0d5ebe2cb573ac817436a0cb0310f7a46c69a742de2de728451fd6293e4825a7894c2112b2651c4c6dcaccb6f545eade1ea58c0e08dcf4a1ddadb636f2fcd52c
+  languageName: node
+  linkType: hard
+
+"mdast-util-to-string@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "mdast-util-to-string@npm:2.0.0"
+  checksum: cd5d5e3a8421adcbdc90620c74b35c5c037211252807e855f9ca7b953dd94ecdab27a1094c8ac9033b7558f0aec2ab190a43bfa8c25a8cd5e11be89162092e1a
   languageName: node
   linkType: hard
 
@@ -6041,6 +6131,17 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"remark-html@npm:^13.0.1":
+  version: 13.0.1
+  resolution: "remark-html@npm:13.0.1"
+  dependencies:
+    hast-util-sanitize: ^3.0.0
+    hast-util-to-html: ^7.0.0
+    mdast-util-to-hast: ^10.0.0
+  checksum: b59c71adad63bbfd627d3c6052b5200a131d6787357caf665bbe2ad6136f13232244de6cea7d637e76fd72c027747347e525cd2f2fb8e4d9dedb5530585d1e37
+  languageName: node
+  linkType: hard
+
 "remark-mdx@npm:1.6.21":
   version: 1.6.21
   resolution: "remark-mdx@npm:1.6.21"
@@ -6100,6 +6201,7 @@ fsevents@~2.1.2:
     "@commitlint/config-conventional": ^11.0.0
     "@mdx-js/mdx": ^1.6.21
     "@rollup/plugin-virtual": ^2.0.3
+    apr-for-each: ^3.0.3
     apr-parallel: ^3.0.3
     ava: ^3.13.0
     c8: ^7.3.5
@@ -6124,7 +6226,9 @@ fsevents@~2.1.2:
     react-dom: ^17.0.1
     rehype-format: ^3.1.0
     rehype-stringify: ^8.0.0
+    remark-html: ^13.0.1
     remark-parse: ^9.0.0
+    remark-stringify: ^9.0.0
     rollup: ^2.33.3
     rollup-plugin-babel: ^4.4.0
     serve: ^11.3.2
@@ -6140,6 +6244,15 @@ fsevents@~2.1.2:
   dependencies:
     mdast-squeeze-paragraphs: ^4.0.0
   checksum: 3ff09ba3e47452dfddef98a0a53d064b20bcdd6d568f4f02766651e60f506ee970b25d282683c25820515856b48a068ae0032cc01151110d605b6ba07b40a30d
+  languageName: node
+  linkType: hard
+
+"remark-stringify@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "remark-stringify@npm:9.0.0"
+  dependencies:
+    mdast-util-to-markdown: ^0.5.0
+  checksum: 67390a3eaa37f5c454c5735d40742c47f53750ac4e3e9d6b39e9e92084754a394869c4c373c1e1bc803d12d193760161eb6d91ea24b9c0cfd91074007e06e48a
   languageName: node
   linkType: hard
 
