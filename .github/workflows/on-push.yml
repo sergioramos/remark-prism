@@ -84,12 +84,6 @@ jobs:
       run: yarn install --immutable --immutable-cache
     - name: Test
       run: yarn run test
-    - uses: devmasx/coverage-check-action@v1.2.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        result_path: coverage/lcov.info
-        min_coverage: 85
-        type: lcov
 
 ###############################################################################
 # RELEASE                                                                     #
