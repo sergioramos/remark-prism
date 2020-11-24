@@ -14,18 +14,63 @@ Syntax highlighter for markdown code blocks using [Prism](https://prismjs.com/) 
 
 ## usage
 
+Input:
+
 ```js
 const src = `
 \`\`\`javascript
 console.log('Hello World');
 \`\`\`
 `;
-
-require('remark')()
-  .use(require('remark-prism'))
-  .use(require('remark-html'))
-  .process(src, (err, { contents }) => console.log(contents));
 ```
+
+Using [remark](https://github.com/remarkjs/remark) (mdast):
+
+```js
+require('unified')()
+  .use(require('remark-parse'))
+  .use(require('remark-stringify'))
+  .use(require('remark-prism'), {
+    /* options */
+  })
+  .use(require('remark-html'))
+  .process(file, (err, file) => console.log(String(file)));
+```
+
+Using [rehype](https://github.com/rehypejs/rehype) (hast):
+
+```js
+require('unified')()
+  .use(require('remark-parse'))
+  .use(require('remark-prism'), {
+    /* options */
+  })
+  .use(require('remark-rehype'))
+  .use(require('rehype-format'))
+  .use(require('rehype-stringify'))
+  .process(file, (err, file) => console.log(String(file)));
+```
+
+Using [mdx](https://mdxjs.com/):
+
+```js
+console.log(
+  await require('@mdx-js/mdx')(src, {
+    commonmark: true,
+    gfm: true,
+    remarkPlugins: [
+      [
+        require('remark-prism'),
+        {
+          /* options */
+        },
+      ],
+    ],
+  }),
+);
+```
+
+Output:
 
 ```html
 <div class="remark-highlight">
@@ -43,15 +88,16 @@ require('remark')()
 </div>
 ```
 
+Take a look at our [fixtures](test/fixtures) and it's [outputs](test/outputs) to see more examples.
+
 ### `transformInlineCode`
 
 Add relevant class names to inline code snippets. For example when you use single backtick code examples.
 
 ```js
-remark()
-  .use(require('remark-prism'), { transformInlineCode: true })
-  .use(require('remark-html'))
-  .process(src, console.log);
+use(require('remark-prism'), {
+  transformInlineCode: true,
+});
 ```
 
 ### plugins
@@ -59,23 +105,19 @@ remark()
 It supports some [Prism](https://prismjs.com/) plugins:
 
 ```js
-remark()
-  .use(require('remark-prism'), {
-    plugins: [
-      'autolinker',
-      'command-line',
-      'data-uri-highlight',
-      'diff-highlight',
-      'inline-color',
-      'keep-markup',
-      'line-numbers',
-      'line-highlight',
-      'show-invisibles',
-      'treeview',
-    ],
-  })
-  .use(require('remark-html'))
-  .process(src, console.log);
+use(require('remark-prism'), {
+  plugins: [
+    'autolinker',
+    'command-line',
+    'data-uri-highlight',
+    'diff-highlight',
+    'inline-color',
+    'keep-markup',
+    'line-numbers',
+    'show-invisibles',
+    'treeview',
+  ],
+});
 ```
 
 > _Don't forget to include the appropriate css in your stylesheets. Refer to the documentation of each plugin._
