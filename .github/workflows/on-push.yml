@@ -95,7 +95,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Get branch
-      uses: rlespinasse/github-slug-action@3.1.0
+      uses: rlespinasse/github-slug-action@3.3.0
     - name: Release
       uses: ridedott/release-me-action@v3.3.4
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
