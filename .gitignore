@@ -165,3 +165,4 @@ $RECYCLE.BIN/
 .yarn/build-state.yml
 .yarn/unplugged
 .npmrc
+.husky
