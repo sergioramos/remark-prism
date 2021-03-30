@@ -1,3 +1,15 @@
+## [1.3.5](https://github.com/sergioramos/remark-prism/compare/v1.3.4...v1.3.5) (2021-03-30)
+
+### Chores
+
+- upgrade mdx to v2 ([fbd1657](https://github.com/sergioramos/remark-prism/commit/fbd1657a6390dd8ab9758196731bb27fd759439d))
+- **deps:** bump actions/cache from v2.1.3 to v2.1.4 ([b1fd922](https://github.com/sergioramos/remark-prism/commit/b1fd92246be5e2ed4b01926c61c1dfad6a912076))
+- **deps:** bump actions/setup-node from v2.1.4 to v2.1.5 ([700fe7c](https://github.com/sergioramos/remark-prism/commit/700fe7c3474dd964ec3d9044681f3f94db814d95))
+- **deps:** bump ridedott/release-me-action from v3.3.4 to v3.5.11 ([f9699a0](https://github.com/sergioramos/remark-prism/commit/f9699a094a7782d75533da777b44f180d50cdb21))
+- **deps:** bump rlespinasse/github-slug-action from 3.1.0 to 3.4.0 ([339d66c](https://github.com/sergioramos/remark-prism/commit/339d66c50788a5969230592b760e9b2ff5305477))
+- **deps:** bump wagoid/commitlint-github-action from v2.1.6 to v3.0.6 ([84befaa](https://github.com/sergioramos/remark-prism/commit/84befaae20776fd3a22140e4da872eafdfff1df2))
+- upgrade dependencies ([319a579](https://github.com/sergioramos/remark-prism/commit/319a579274e7a70bb5d4868739fdadca7145b7ed))
+
 ## [1.3.4](https://github.com/sergioramos/remark-prism/compare/v1.3.3...v1.3.4) (2021-01-05)
 
 ### Chores
