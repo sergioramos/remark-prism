@@ -1,3 +1,14 @@
+## [1.3.6](https://github.com/sergioramos/remark-prism/compare/v1.3.5...v1.3.6) (2021-04-13)
+
+### Chores
+
+- add .npmignore ([84bcf72](https://github.com/sergioramos/remark-prism/commit/84bcf72325ef025949804ddc5b3e5111d9390d22))
+- upgrade dependencies ([a89f42f](https://github.com/sergioramos/remark-prism/commit/a89f42fd437e2757a4902ca4194ad03c499d15cb))
+- **deps:** bump actions/cache from v2.1.4 to v2.1.5 ([f1a3985](https://github.com/sergioramos/remark-prism/commit/f1a3985292338f676dee79459c6a4881238a1831))
+- **deps:** bump ridedott/release-me-action from v3.5.11 to v3.5.20 ([2d488fb](https://github.com/sergioramos/remark-prism/commit/2d488fb603cdd6670fde97161ae1d56419b0297b))
+- **deps:** bump rlespinasse/github-slug-action from 3.4.0 to 3.5.1 ([d469f00](https://github.com/sergioramos/remark-prism/commit/d469f001173a51e6ac8842ba519211d265967b43))
+- **deps:** bump wagoid/commitlint-github-action from v3.0.6 to v3.1.0 ([954264d](https://github.com/sergioramos/remark-prism/commit/954264d49ea71f36984a669e91d64f4224dcf0ee))
+
 ## [1.3.5](https://github.com/sergioramos/remark-prism/compare/v1.3.4...v1.3.5) (2021-03-30)
 
 ### Chores
