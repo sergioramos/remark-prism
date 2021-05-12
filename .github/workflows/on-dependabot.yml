@@ -11,7 +11,7 @@ jobs:
   update-manifests:
     runs-on: ubuntu-latest
     steps:
-    - uses: technote-space/auto-cancel-redundant-job@v1
+    - uses: technote-space/auto-cancel-redundant-job@v1.7.4
     - uses: actions/checkout@v2
       with:
         fetch-depth: 20
