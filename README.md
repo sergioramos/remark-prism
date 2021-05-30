@@ -90,6 +90,27 @@ Output:
 
 Take a look at our [fixtures](test/fixtures) and it's [outputs](test/outputs) to see more examples.
 
+### reusing highlighters
+
+To avoid initializing highlighter for every call:
+
+```js
+const createHighlighter = require("remark-prism/src/highlight");
+
+const highlighter = createHighlighter({});
+
+require('unified')()
+  .use(require('remark-parse'))
+  .use(require('remark-prism'), {
+    highlighter: highlighter,
+    /* options */
+  })
+  .use(require('remark-rehype'))
+  .use(require('rehype-format'))
+  .use(require('rehype-stringify'))
+  .process(file, (err, file) => console.log(String(file)));
+```
+
 ### `transformInlineCode`
 
 Add relevant class names to inline code snippets. For example when you use single backtick code examples.
