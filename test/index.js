@@ -15,6 +15,7 @@ const vfile = require('to-vfile');
 const unified = require('unified');
 
 const prism = require('..');
+const createHighlighter = require('../src/highlight');
 const { PLUGINS } = require('../src/highlight');
 
 const { CI = 'false' } = process.env;
@@ -148,7 +149,15 @@ const compileHAst = async (testcase, options) => {
 };
 
 const compileAll = async (name, options = {}) => {
-  const { mdast, hast, jsx } = await Parallel({
+  const rawHighlighter = createHighlighter(options);
+
+  let counter = 0;
+  const highlighter = (...args) => {
+    counter++;
+    return rawHighlighter(...args);
+  };
+
+  const { mdast, hast, jsx, mdastWithExisting, hastWithExisting, jsxWithExisting } = await Parallel({
     mdast: async () => {
       const output = await compileMdAst(name, options);
       await writeFile(join(OUTPUTS, `${name}.mdast.html`), output);
@@ -168,9 +177,32 @@ const compileAll = async (name, options = {}) => {
 
       return output;
     },
+    mdastWithExisting: async () => {
+      const output = await compileMdAst(name, {...options, highlighter});
+      await writeFile(join(OUTPUTS, `${name}.mdastWithExisting.html`), output);
+
+      return output;
+    },
+    hastWithExisting: async () => {
+      const output = await compileHAst(name, {...options, highlighter});
+      await writeFile(join(OUTPUTS, `${name}.hastWithExisting.html`), output);
+
+      return output;
+    },
+    jsxWithExisting: async () => {
+      const src = await readFile(join(FIXTURES, `${name}.md`));
+      const output = await compileJsx(src, {...options, highlighter});
+      await writeFile(join(OUTPUTS, `${name}.jsxWithExisting.html`), output);
+
+      return output;
+    },
   });
 
-  return [mdast, hast, jsx];
+  if (counter < 2) {
+    throw new Error(`Existing highlighter only used ${counter} time(s)`);
+  }
+
+  return [mdast, hast, jsx, mdastWithExisting, hastWithExisting, jsxWithExisting];
 };
 
 const fixtures = readdirSync(FIXTURES)
@@ -179,7 +211,7 @@ const fixtures = readdirSync(FIXTURES)
 
 for (const name of fixtures) {
   test(name, async (t) => {
-    const [mdast, hast, jsx] = await compileAll(name, {
+    const [mdast, hast, jsx, mdastWithExisting, hastWithExisting, jsxWithExisting] = await compileAll(name, {
       plugins: [
         ...(PLUGINS.includes(name)
           ? [name]
@@ -200,8 +232,11 @@ for (const name of fixtures) {
     t.snapshot(mdast);
     t.snapshot(hast);
     t.snapshot(jsx);
+    t.snapshot(mdastWithExisting);
+    t.snapshot(hastWithExisting);
+    t.snapshot(jsxWithExisting);
 
-    await ForEach(['jsx', 'mdast', 'hast'], async (type) => {
+    await ForEach(['jsx', 'mdast', 'hast', 'jsxWithExisting', 'hastWithExisting', 'jsxWithExisting'], async (type) => {
       return takeScreenshot(
         join(OUTPUTS, `${name}.${type}.html`),
         join(OUTPUTS, `${name}.${type}.png`),

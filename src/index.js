@@ -71,7 +71,12 @@ const parseLang = (str) => {
 };
 
 module.exports = (options = {}) => (tree) => {
-  const highlight = createHighlighter(options);
+  let { highlighter } = options;
+
+  if (highlighter === undefined) {
+    highlighter = createHighlighter(options);
+  }
+
   const { transformInlineCode = false } = options;
 
   return map(tree, (node) => {
@@ -104,7 +109,7 @@ module.exports = (options = {}) => (tree) => {
     const code = h(
       'code',
       { className: `language-${lang}` },
-      highlight({
+      highlighter({
         lang,
         value:
           value ||
