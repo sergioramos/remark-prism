@@ -165,7 +165,7 @@ use(require('remark-prism'), {
 </pre>
 ```
 
-**Note:** style need to be added into the site for `.remark-highlight-code-line`, example:
+**Note:** highlighting styles need to be added into css file on the site for `.remark-highlight-code-line` class, example:
 
 ```css
 .remark-highlight-code-line {
