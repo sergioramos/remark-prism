@@ -132,6 +132,50 @@ use(require('remark-prism'), {
 <pre class="language-diff-javascript diff-highlight line-numbers">...</pre>
 ```
 
+### line highlighting
+
+**Single line:**
+```
+\`\`\`javascript[class="line-numbers"]{3}
+```
+
+```html
+<pre class="language-javascript line-numbers">
+  <code>
+    <!-- The line to be highlighted -->
+    <span class="remark-highlight-code-line"> ...</span>
+  </code>
+</pre>
+```
+
+**Multiple line:**
+
+```
+\`\`\`javascript[class="line-numbers"]{3-5}
+```
+
+```html
+<pre class="language-javascript line-numbers">
+  <code>
+    <!-- The line to be highlighted -->
+    <span class="remark-highlight-code-line">...</span>
+    <span class="remark-highlight-code-line">...</span>
+    <span class="remark-highlight-code-line">...</span>
+  </code>
+</pre>
+```
+
+**Note:** style need to be added into the site for `.remark-highlight-code-line`, example:
+
+```css
+.remark-highlight-code-line {
+  display: block;
+  background-color: #38383629; // highlight background color
+  margin: 3px 0; // adjust spacing between blocks
+}
+
+```
+
 ## license
 
 BSD-3-Clause
