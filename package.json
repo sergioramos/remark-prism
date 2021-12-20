@@ -43,7 +43,7 @@
     "apr-for-each": "^3.0.3",
     "apr-parallel": "^3.0.3",
     "ava": "^3.15.0",
-    "eslint": "^7.24.0",
+    "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-xo-space": "^0.27.0",
     "husky": "^6.0.0",
