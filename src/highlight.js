@@ -13,6 +13,7 @@ const PLUGINS = [
   'command-line',
   'data-uri-highlight',
   'diff-highlight',
+  'highlight-keywords',
   'inline-color',
   'keep-markup',
   'line-numbers',
