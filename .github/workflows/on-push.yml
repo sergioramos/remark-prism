@@ -97,7 +97,7 @@ jobs:
     - name: Get branch
       uses: rlespinasse/github-slug-action@3.5.1
     - name: Release
-      uses: ridedott/release-me-action@v3.5.20
+      uses: ridedott/release-me-action@v3.6.36
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       with:
         node-module: true
