@@ -21,7 +21,8 @@ const PLUGINS = [
 ];
 
 const domHighlight = (value, attrs = {}, range = []) => {
-  const MULTILINE_TOKEN_SPAN = /<span class="token ([^"]+)">[^<]*\n[^<]*<\/span>/g;
+  const MULTILINE_TOKEN_SPAN =
+    /<span class="token ([^"]+)">[^<]*\n[^<]*<\/span>/g;
 
   // eslint-disable-next-line no-undef
   const pre = window.document.createElement('pre');

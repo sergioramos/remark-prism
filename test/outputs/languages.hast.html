@@ -130,7 +130,7 @@
 <div class="remark-highlight">
   <pre
     class="language-autohotkey"
-  ><code class="language-autohotkey"><span class="token selector">MsgBox</span><span class="token punctuation">,</span> Hello World
+  ><code class="language-autohotkey"><span class="token command selector">MsgBox</span><span class="token punctuation">,</span> Hello World
 </code></pre>
 </div>
 <div class="remark-highlight">
@@ -238,7 +238,7 @@
 <div class="remark-highlight">
   <pre
     class="language-crystal"
-  ><code class="language-crystal">puts <span class="token string">"Hello World"</span>
+  ><code class="language-crystal">puts <span class="token string-literal"><span class="token string">"Hello World"</span></span>
 </code></pre>
 </div>
 <div class="remark-highlight">
@@ -257,7 +257,7 @@
   <pre
     class="language-dart"
   ><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Hello World'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'Hello World'</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 </div>
@@ -266,7 +266,7 @@
     class="language-eiffel"
   ><code class="language-eiffel">indexing <span class="token string">"Hello World in Eiffel , from http://roesler-ac.de/wolfram/hello.htm#Eiffel"</span>
 
-<span class="token keyword">class</span> <span class="token class-name builtin">HELLO</span>
+<span class="token keyword">class</span> <span class="token class-name">HELLO</span>
 
 creation
 	run
@@ -275,7 +275,7 @@ creation
 
 	run is
 		<span class="token keyword">local</span>
-			io <span class="token punctuation">:</span> <span class="token class-name builtin">BASIC_IO</span><span class="token punctuation">;</span>
+			io <span class="token punctuation">:</span> <span class="token class-name">BASIC_IO</span><span class="token punctuation">;</span>
 		<span class="token keyword">do</span>
 			!!io<span class="token punctuation">;</span>
 			io<span class="token punctuation">.</span>put_string<span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -287,7 +287,7 @@ creation
 <div class="remark-highlight">
   <pre
     class="language-elixir"
-  ><code class="language-elixir">IO<span class="token punctuation">.</span>puts <span class="token string">"Defining the function world"</span>
+  ><code class="language-elixir"><span class="token module class-name">IO</span><span class="token punctuation">.</span>puts <span class="token string">"Defining the function world"</span>
 </code></pre>
 </div>
 <div class="remark-highlight">
@@ -368,7 +368,7 @@ creation
 <div class="remark-highlight">
   <pre
     class="language-groovy"
-  ><code class="language-groovy">println <span class="token string gstring">"Hello World"</span>
+  ><code class="language-groovy">println <span class="token interpolation-string"><span class="token string">"Hello World"</span></span>
 </code></pre>
 </div>
 <div class="remark-highlight">
@@ -391,7 +391,7 @@ creation
 <div class="remark-highlight">
   <pre
     class="language-haxe"
-  ><code class="language-haxe"><span class="token keyword">class</span> HelloWorld <span class="token punctuation">{</span>
+  ><code class="language-haxe"><span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token punctuation">{</span>
     <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token function">trace</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -448,7 +448,7 @@ exit <span class="token string">''</span>
   ><code class="language-kotlin"><span class="token keyword">package</span> hello
 
 <span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span>
+  <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Hello World"</span></span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
 </div>
@@ -543,10 +543,10 @@ CAN HAS STDIO?
 <div class="remark-highlight">
   <pre
     class="language-mel"
-  ><code class="language-mel"><span class="token keyword">proc</span> helloWorld <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ><code class="language-mel"><span class="token keyword">proc</span> <span class="token function">helloWorld</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
    <span class="token function">print</span> <span class="token string">"Hello World\n"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-helloWorld<span class="token punctuation">;</span>
+<span class="token function">helloWorld</span><span class="token punctuation">;</span>
 </code></pre>
 </div>
 <div class="remark-highlight">
@@ -797,7 +797,7 @@ main <span class="token operator">=</span> <span class="token keyword">trace</sp
   <pre
     class="language-ruby"
   ><code class="language-ruby"><span class="token comment">#!/usr/bin/env ruby</span>
-puts <span class="token string">"Hello World"</span>
+puts <span class="token string-literal"><span class="token string">"Hello World"</span></span>
 </code></pre>
 </div>
 <div class="remark-highlight">
@@ -822,7 +822,7 @@ puts <span class="token string">"Hello World"</span>
   <pre
     class="language-sass"
   ><code class="language-sass"><span class="token property-line"><span class="token property">body</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token property">before</span></span>
-<span class="token property-line">	<span class="token property">content</span><span class="token punctuation">:</span> </span><span class="token string">"Hello World"</span>
+<span class="token property-line">	<span class="token property">content</span><span class="token punctuation">:</span> "Hello World"</span>
 </code></pre>
 </div>
 <div class="remark-highlight">
@@ -842,7 +842,7 @@ puts <span class="token string">"Hello World"</span>
 <div class="remark-highlight">
   <pre
     class="language-shell-session"
-  ><code class="language-shell-session"><span class="token command"><span class="token shell-symbol important">#</span><span class="token bash language-bash"><span class="token operator">!</span>/bin/sh</span></span>
+  ><code class="language-shell-session"><span class="token output">#!/bin/sh</span>
 <span class="token output">echo "Hello World"</span>
 </code></pre>
 </div>
@@ -888,7 +888,7 @@ puts <span class="token string">"Hello World"</span>
 <div class="remark-highlight">
   <pre
     class="language-swift"
-  ><code class="language-swift"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span>
+  ><code class="language-swift"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Hello World"</span></span><span class="token punctuation">)</span>
 </code></pre>
 </div>
 <div class="remark-highlight">
@@ -929,8 +929,8 @@ puts <span class="token string">"Hello World"</span>
   ><code class="language-verilog"><span class="token keyword">module</span> main<span class="token punctuation">;</span>
   <span class="token keyword">initial</span>
     <span class="token keyword">begin</span>
-      <span class="token property">$display</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token property">$finish</span><span class="token punctuation">;</span>
+      <span class="token kernel-function property">$display</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token kernel-function property">$finish</span><span class="token punctuation">;</span>
     <span class="token keyword">end</span>
 <span class="token keyword">endmodule</span>
 </code></pre>
@@ -938,7 +938,7 @@ puts <span class="token string">"Hello World"</span>
 <div class="remark-highlight">
   <pre
     class="language-vhdl"
-  ><code class="language-vhdl"><span class="token constant">use</span> std<span class="token punctuation">.</span>textio<span class="token punctuation">.</span><span class="token keyword">all</span><span class="token punctuation">;</span>
+  ><code class="language-vhdl"><span class="token keyword">use</span> std<span class="token punctuation">.</span>textio<span class="token punctuation">.</span><span class="token keyword">all</span><span class="token punctuation">;</span>
 
 <span class="token keyword">entity</span> hello_world <span class="token keyword">is</span>
 <span class="token keyword">end</span> hello_world<span class="token punctuation">;</span>

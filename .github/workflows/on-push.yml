@@ -6,15 +6,15 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-    - uses: technote-space/auto-cancel-redundant-job@v1
+    - uses: technote-space/auto-cancel-redundant-job@v1.7.4
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Setup Node.js
-      uses: actions/setup-node@v2.1.5
+      uses: actions/setup-node@v3
       with:
-        node-version: '13.x'
+        node-version: 'lts/*'
     - name: Setup Cache
-      uses: actions/cache@v2.1.5
+      uses: actions/cache@v3.0.2
       with:
         path: .yarn
         key: ${{ runner.os }}-node-modules-${{ hashFiles('yarn.lock') }}
@@ -31,11 +31,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
     - name: Commit Lint
-      uses: wagoid/commitlint-github-action@v3.1.0
+      uses: wagoid/commitlint-github-action@v4.1.12
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -47,13 +47,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Setup Node.js
-      uses: actions/setup-node@v2.1.5
+      uses: actions/setup-node@v3
       with:
-        node-version: '13.x'
+        node-version: 'lts/*'
     - name: Setup Cache
-      uses: actions/cache@v2.1.5
+      uses: actions/cache@v3.0.2
       with:
         path: .yarn
         key: ${{ runner.os }}-node-modules-${{ hashFiles('yarn.lock') }}
@@ -70,13 +70,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Setup Node.js
-      uses: actions/setup-node@v2.1.5
+      uses: actions/setup-node@v3
       with:
-        node-version: '13.x'
+        node-version: 'lts/*'
     - name: Setup Cache
-      uses: actions/cache@v2.1.5
+      uses: actions/cache@v3.0.2
       with:
         path: .yarn
         key: ${{ runner.os }}-node-modules-${{ hashFiles('yarn.lock') }}
@@ -93,11 +93,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Get branch
       uses: rlespinasse/github-slug-action@3.5.1
     - name: Release
-      uses: ridedott/release-me-action@v3.5.20
+      uses: ridedott/release-me-action@v3.6.40
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       with:
         node-module: true

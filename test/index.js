@@ -3,7 +3,7 @@ const { transform } = require('@babel/core');
 const { readFile, writeFile, readdirSync } = require('mz/fs');
 const mdx = require('@mdx-js/mdx');
 const { join } = require('path');
-const puppeteer = require('puppeteer');
+const playwright = require('playwright');
 const prettier = require('prettier');
 const { default: ForEach } = require('apr-for-each');
 const Parallel = require('apr-parallel');
@@ -26,8 +26,11 @@ const takeScreenshot = async (file, path) => {
     return;
   }
 
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
+  const browser = await playwright.chromium.launch();
+  const context = await browser.newContext();
+  const page = await context.newPage();
+
+  await page.setViewportSize({ width: 800, height: 600 });
   await page.goto(`file://${file}`, { waitUntil: 'networkidle0' });
   await page.evaluateHandle('document.fonts.ready');
   await page.screenshot({ path, fullPage: true });
@@ -149,19 +152,19 @@ const compileHAst = async (testcase, options) => {
 
 const compileAll = async (name, options = {}) => {
   const { mdast, hast, jsx } = await Parallel({
-    mdast: async () => {
+    async mdast() {
       const output = await compileMdAst(name, options);
       await writeFile(join(OUTPUTS, `${name}.mdast.html`), output);
 
       return output;
     },
-    hast: async () => {
+    async hast() {
       const output = await compileHAst(name, options);
       await writeFile(join(OUTPUTS, `${name}.hast.html`), output);
 
       return output;
     },
-    jsx: async () => {
+    async jsx() {
       const src = await readFile(join(FIXTURES, `${name}.md`));
       const output = await compileJsx(src, options);
       await writeFile(join(OUTPUTS, `${name}.jsx.html`), output);
