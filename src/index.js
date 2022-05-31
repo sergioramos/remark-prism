@@ -70,69 +70,71 @@ const parseLang = (str) => {
   };
 };
 
-module.exports = (options = {}) => (tree) => {
-  const highlight = createHighlighter(options);
-  const { transformInlineCode = false } = options;
+module.exports = (options = {}) => {
+  return (tree) => {
+    const highlight = createHighlighter(options);
+    const { transformInlineCode = false } = options;
 
-  return map(tree, (node) => {
-    const { type, tagName } = node;
+    return map(tree, (node) => {
+      const { type, tagName } = node;
 
-    if (
-      !['code', 'inlineCode'].includes(type) &&
-      !['code', 'inlineCode'].includes(tagName)
-    ) {
-      return node;
-    }
+      if (
+        !['code', 'inlineCode'].includes(type) &&
+        !['code', 'inlineCode'].includes(tagName)
+      ) {
+        return node;
+      }
 
-    if (
-      (type === 'inlineCode' && !transformInlineCode) ||
-      (type === 'tagName' && !transformInlineCode)
-    ) {
-      return node;
-    }
+      if (
+        (type === 'inlineCode' && !transformInlineCode) ||
+        (type === 'tagName' && !transformInlineCode)
+      ) {
+        return node;
+      }
 
-    const { value, properties = {}, children = [] } = node;
-    const { className: classNameArr = [] } = properties;
-    const langClassName = classNameArr
-      .map((lang) => lang.replace(/language-/, ''))
-      .join(' ');
+      const { value, properties = {}, children = [] } = node;
+      const { className: classNameArr = [] } = properties;
+      const langClassName = classNameArr
+        .map((lang) => lang.replace(/language-/, ''))
+        .join(' ');
 
-    const langToken = node.lang || langClassName;
-    const { lang = 'unknown', attrs, legend, range } = parseLang(langToken);
-    const { class: className = '', ...restAttrs } = attrs;
+      const langToken = node.lang || langClassName;
+      const { lang = 'unknown', attrs, legend, range } = parseLang(langToken);
+      const { class: className = '', ...restAttrs } = attrs;
 
-    const code = h(
-      'code',
-      { className: `language-${lang}` },
-      highlight({
-        lang,
-        value:
-          value ||
-          children
-            .filter(({ type }) => type === 'text')
-            .map(({ value }) => value)
-            .pop(),
-        attrs,
-        range,
-      }),
-    );
+      const code = h(
+        'code',
+        { className: `language-${lang}` },
+        highlight({
+          lang,
+          value:
+            value ||
+            children
+              .filter(({ type }) => type === 'text')
+              .map(({ value }) => value)
+              .pop(),
+          attrs,
+          range,
+        }),
+      );
 
-    const pre = h(
-      'div',
-      { className: `remark-highlight` },
-      [
-        h(
-          'pre',
-          {
-            ...restAttrs,
-            className: className.split(/\s/),
-          },
-          [code],
-        ),
-        legend ? h('legend', {}, [{ type: 'text', value: legend }]) : null,
-      ].filter(Boolean),
-    );
+      const pre = h(
+        'div',
+        { className: `remark-highlight` },
+        [
+          h(
+            'pre',
+            {
+              ...restAttrs,
+              className: className.split(/\s/),
+            },
+            [code],
+          ),
+          legend ? h('legend', {}, [{ type: 'text', value: legend }]) : null,
+        ].filter(Boolean),
+      );
 
-    return /^inline/.test(type) ? code : pre;
-  });
+      return /^inline/.test(type) ? code : pre;
+    });
+  };
 };
