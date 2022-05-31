@@ -17,9 +17,9 @@ jobs:
         fetch-depth: 20
         persist-credentials: false
     - name: Setup Node.js
-      uses: actions/setup-node@v2.1.5
+      uses: actions/setup-node@v3
       with:
-        node-version: '14.x'
+        node-version: 'lts/*'
     - name: Config Git
       run: |
         git config --global user.name '${{ github.event.commits[0].author.name }}'

@@ -11,9 +11,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Setup Node.js
-      uses: actions/setup-node@v2.1.5
+      uses: actions/setup-node@v3
       with:
-        node-version: '13.x'
+        node-version: 'lts/*'
         registry-url: https://registry.npmjs.com/
         scope: '@sergioramos'
     - name: Install dependencies
