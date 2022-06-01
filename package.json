@@ -59,7 +59,7 @@
     "remark-html": "^13.0.1",
     "remark-parse": "^9.0.0",
     "remark-rehype": "^8.1.0",
-    "remark-stringify": "^9.0.1",
+    "remark-stringify": "^10.0.2",
     "rollup": "^2.45.2",
     "rollup-plugin-babel": "^4.4.0",
     "serve": "^11.3.2",
