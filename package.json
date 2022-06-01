@@ -64,7 +64,7 @@
     "rollup-plugin-babel": "^4.4.0",
     "serve": "^11.3.2",
     "to-vfile": "^6.1.0",
-    "unified": "^9.2.1"
+    "unified": "^10.1.2"
   },
   "resolutions": {
     "fsevents": "1.2.13"
